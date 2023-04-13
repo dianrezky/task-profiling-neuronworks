@@ -1,0 +1,218 @@
+/*untuk layar device berukuran kecil*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&amp;display=swap");
+
+ 
+@media screen and (max-width: 450px) {
+
+    body{
+        /* width: 50%; */
+        width: calc(100% - 2000px)
+    }
+}
+
+/*untuk layar device berukuran sedang*/
+@media screen and (max-width: 550px) {
+    body{
+        /* width: 80px; */
+        width: calc(100% - 2000px)
+    }
+}
+
+/*untuk layar device berukuran besar*/
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* SETTING HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60.58px;
+    /* padding: 30px 0 30px 0; */
+
+}
+
+nav{
+    width: 100%;
+    /* height:60.58%; */
+    padding: 16px;
+    box-shadow: 0px 4px 8px -8px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+
+main {
+    /* background-image: url("../image/Starlid-illustration.svg"); */
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+    grid-template-columns: auto;
+    grid-template-rows: auto 60% 40%;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+}
+
+/* .img{
+    vertical-align: middle;
+} */
+.recruitment {
+    position: relative;
+    margin: 3rem auto;
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    /* background-color: rgb(64, 202, 89); */
+    width: max-content;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.container-form {
+    /* image-align: center; */
+    padding: 40px 40px 40px 40px;
+    /* text-align: center; */
+
+}
+
+.form-group {
+    margin-bottom: 12px;
+    border: 0 !important;
+    font-family: 'Source Sans Pro', sans-serif;;
+
+
+}
+
+.title-form {
+    font-weight: 600;
+    font-size: 28px;
+    color: #424242;
+    /* display: block; */
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+    /* font: 1em sans-serif; */
+}
+
+.row-form{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.col-form{
+    display: flex;
+    flex-direction: column;
+    margin: 0px  0px 50px 0px ;
+}
+
+.form-group label {
+    display: block;
+    width: 100%;
+    height: 38%;
+    padding: 6px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    margin: 0px 0px 8px;
+    
+    
+}
+
+.form-group input {
+    display: block;
+    width: 97%;
+    height: 38%;
+    padding: 12px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    background: #fff;
+}
+
+.form-group select {
+    /* display: block; */
+    width: 100%;
+    height: 38%;
+    padding: 12px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-group button {
+    display: block;
+    width: 100%;
+    height: 38%;
+    background-color: #1e88e5;
+    color: #fff;
+    font-weight: bold;
+    margin: 0px 0px 2px;
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: inherit;
+    border: transparent;
+    border-radius: 5px;
+}
+
+.text-danger {
+    color: #e53935;
+}
+
+
+div.horizontal-list {
+    text-align: center;
+  }
+
+
+
+.horizontal-list ul li {
+    color: #424242;
+    font-size: 32px;
+    display: inline-block;
+    /* margin: 0 15px 0 15px; */
+    text-align: left;
+
+}
+
+.horizontal-list a {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 32px 32px 32px 32px;
+    /* text-decoration: none; */
+}
+
+
+/* FOOTER */
+
+.footer{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    box-shadow: 8px 4px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-web {
+    text-align: center;
+}
