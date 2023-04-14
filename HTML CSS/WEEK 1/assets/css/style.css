@@ -24,15 +24,17 @@
         width: 100%;
         height: 60px;
         /* bottom: 0; */
+        align-items: center;
         box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
         
         
     }
     
     .footer-web {
-        width: 500px;
+        width: 100%;
         padding: 14px 0px 14px 0px;
         text-align: center;
+        align-items: center;
         font-family: 'Courier New', Courier, monospace;
         /* font-size: 1; */
         /* box-shadow: 8px 0px -2px 2px rgba(0, 0, 0, 0.1); */
@@ -241,6 +243,7 @@ div.horizontal-list {
 .footer-web {
     padding: 14px 0px 14px 0px;
     text-align: center;
+    align-items: center;
     font-family: 'Courier New', Courier, monospace;
     /* font-size: 1; */
     /* box-shadow: 8px 0px -2px 2px rgba(0, 0, 0, 0.1); */
