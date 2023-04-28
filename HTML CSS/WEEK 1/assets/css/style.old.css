@@ -1,0 +1,295 @@
+/*untuk layar device berukuran kecil*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700;1,900&amp;display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&amp;display=swap");
+
+
+@media screen and (min-width: 400px) {
+
+    /* .body {
+        width: calc(100% - 200px);
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    } */
+
+
+}
+
+@media (max-width:500px) {
+    footer{
+        margin-top: 20px;
+        position:bottom;
+    }
+
+    .content{
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* SETTING LAYOUT HEADER BODY FOOTER */
+/* * {
+    box-sizing: border-box;
+} */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* body {
+    width: 100%;
+    margin: 0;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* HEADER */
+
+header {
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+
+}
+
+nav {
+    height:60.58px;
+    /* padding: 16px; */
+    box-shadow: 0px 4px 8px -8px rgba(0, 0, 0, 0.4);
+    /* z-index: 10; */
+}
+
+
+/* header nav {
+    float: left; ini gadipake
+    color: black;
+    text-align: center;
+    padding: 12px ini gadipake;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+} */
+
+.navbar-header li a:hover {
+    display: block;
+    background-color: rgb(98, 169, 189);
+    text-align: left;
+    list-style-type: none;
+    /* text-decoration: none; */
+}
+
+.navbar-header li a {
+    display: block;
+    text-align: left;
+    list-style-type: none;
+    /* text-decoration: none; */
+}
+
+/* SET FOR BODY */
+
+
+.content {
+    height: 100%;
+    width: 100vw;
+    /* margin-bottom: -50px; */
+}
+
+.row-form {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+
+}
+
+.col-form {
+    display: flex;
+    flex-direction: column;
+    /* margin: 0px 0px 0px 0px; */
+    /* height: 100%; */
+}
+
+
+/* SETTING IMAGE  */
+
+.background-web {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.logo img {
+    cursor: pointer;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+/* .img{
+    vertical-align: middle;
+} */
+
+
+/* UNTUK FORM RECRUITMENT */
+.recruitment {
+    /* position: relative; */
+    margin: 3rem auto;
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    /* background-color: rgb(64, 202, 89); */
+    width: max-content;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-right: 40px;
+}
+
+.container-form {
+    /* image-align: center; */
+    padding: 40px 40px 40px 40px;
+    /* text-align: center; */
+
+}
+
+.form-group {
+    margin-bottom: 12px;
+    border: 0 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+    ;
+
+
+}
+
+.title-form {
+    font-weight: 600;
+    font-size: 28px;
+    color: #424242;
+    /* display: block; */
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+    /* font: 1em sans-serif; */
+}
+
+.form-group label {
+    display: block;
+    width: 100%;
+    height: 38%;
+    padding: 6px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    margin: 0px 0px 8px;
+
+
+}
+
+.form-group input {
+    display: block;
+    width: 97%;
+    height: 38%;
+    padding: 12px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    background: #fff;
+}
+
+.form-group select {
+    /* display: block; */
+    width: 100%;
+    height: 38%;
+    padding: 12px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-group button {
+    display: block;
+    width: 100%;
+    height: 38%;
+    background-color: #1e88e5;
+    color: #fff;
+    font-weight: bold;
+    margin: 0px 0px 2px;
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: inherit;
+    border: transparent;
+    border-radius: 5px;
+}
+
+.text-danger {
+    color: #e53935;
+}
+
+/* BAGIAN SOCIAL MEDIA */
+.social-media {
+    text-align: center;
+}
+
+.social-media ul li {
+    color: #424242;
+    font-size: 32px;
+    display: inline-block;
+    /* margin: 0 15px 0 15px; */
+    text-align: left;
+
+}
+
+.social-media a {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 32px 32px 32px 32px;
+    /* text-decoration: none; */
+}
+
+.neuron-link a,
+p {
+    text-decoration: none;
+    text-align: center;
+    color: #424242;
+    font-size: 1 rem;
+
+}
+
+
+/* FOOTER */
+
+
+footer {
+    height: 60px;
+    width: 100vw;
+    position: fixed;
+    /* padding: 10px; */
+    /* box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid #202020; */
+    text-align: center;
+    align-items: center;
+    padding: 10px 0px 10px 0px;
+    box-shadow: inset 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content p,a {
+    font-family: 'Courier New', Courier, monospace;
+
+}

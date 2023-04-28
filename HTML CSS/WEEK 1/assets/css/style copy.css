@@ -1,0 +1,368 @@
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    height: 100%;
+    /* margin-top: ; */
+    flex-direction: column;
+    -ms-flex-direction: column;
+
+}
+
+/* HEADER */
+
+
+.header-area {
+    /* display: block; */
+    /* height: 60px; */
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px -8px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    /* overflow: hidden; */
+    padding: 20px 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+
+    position: absolute;
+}
+
+.header a:hover {
+    background-color: #bbcaec;
+    color: black;
+  }
+
+
+
+.header a.active {
+    background-color: rgb(80, 146, 213);
+    color: white;
+}
+
+.header a.logo img {
+    cursor: pointer;
+    /* padding: 20px 0px 20px 0px; */
+    /* margin-top: 5px; */
+    height: 38.58px;
+    width:128px;
+    text-align: center;
+    /* padding: 12px; */
+    text-decoration: none;
+    /* font-size: 18px;  */
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a{
+    float: left;
+    color: black;
+    width: 200px;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.navbar-content {
+    float: right;
+    margin-bottom: 0px;
+    /* padding: 5px 10px 5px 10px; */
+}
+
+
+
+
+/* CONTENT */
+
+
+.content {
+    /* position:absolute; */
+    left: 0;
+    right: 0;
+    /* margin-top: 200px; */
+}
+
+.background-web {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.row-form {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    flex: 1;
+
+    /* margin-bottom: -20px; */
+
+
+}
+
+.col-form {
+    /* display: flex; */
+    align-items: center;
+    flex-direction: column;
+    /* margin: 0px 0px 0px 0px; */
+    /* height: 100%; */
+
+}
+
+/* UNTUK FORM RECRUITMENT */
+.recruitment {
+    /* position: relative; */
+    /* margin-top:0px; */
+    margin: 200px auto 120px;
+    padding: 20px;
+    /* display: flex; */
+    align-items: center;
+    flex-flow: column wrap;
+    width: max-content;
+    height: fit-content;
+    /* border: 1px solid #424242; */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-right: 40px;
+}
+
+.container-form {
+    /* image-align: center; */
+    padding: 40px 40px 40px 40px;
+    /* text-align: center; */
+
+}
+
+.form-group {
+    margin-bottom: 12px;
+    border: 0 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.title-form {
+    font-weight: 600;
+    font-size: 28px;
+    color: #424242;
+    /* display: block; */
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: left;
+    /* font: 1em sans-serif; */
+}
+
+.form-group label {
+    display: block;
+    width: 100%;
+    height: 38%;
+    padding: 6px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    margin: 0px 0px 8px;
+
+
+}
+
+.form-group input {
+    display: block;
+    width: 97%;
+    height: 38%;
+    padding: 12px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    background: #fff;
+}
+
+.form-group select {
+    /* display: block; */
+    width: 100%;
+    height: 38%;
+    padding: 12px 8px;
+    color: #424242;
+    margin: 0px 0px 12px;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-group button {
+    display: block;
+    width: 100%;
+    height: 38%;
+    background-color: #1e88e5;
+    color: #fff;
+    font-weight: bold;
+    margin: 0px 0px 2px;
+    padding: 6px 12px;
+    font-family: inherit;
+    font-size: inherit;
+    border: transparent;
+    border-radius: 5px;
+}
+
+.text-danger {
+    color: #e53935;
+}
+
+/* END FORM RECRUITMENT*/
+
+/* BAGIAN SOCIAL MEDIA */
+.social-media {
+    text-align: center;
+}
+
+.social-media ul li {
+    color: #424242;
+    font-size: 32px;
+    display: inline-block;
+    /* margin: 0 15px 0 15px; */
+    text-align: left;
+
+}
+
+.social-media a {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    padding: 32px 32px 32px 32px;
+    /* text-decoration: none; */
+}
+
+.neuron-link a,
+p {
+    text-decoration: none;
+    text-align: center;
+    color: #424242;
+    font-size: 1 rem;
+
+}
+/* END BAGIAN SOCIAL MEDIA */
+
+/* UNTUK TABEL DASHBOARD */
+
+.card-header .fa {
+    transition: .3s transform ease-in-out;
+    back
+}
+
+.card-header .collapsed .fa {
+    transform: rotate(90deg);
+}
+
+.row-dashboard {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    flex: 1;
+
+    /* margin-bottom: -20px; */
+}
+
+.row-dashboard h4 {
+    margin-bottom: 20px;
+    border-bottom: 4px solid #000000;
+    width: 100%;
+}
+
+.col-dashboard {
+    /* display: flex; */
+    align-items: center;
+    flex-direction: column;
+    /* margin-right: 50px; */
+    /* margin: 0px 0px 0px 0px; */
+    /* height: 100%; */
+    width: 100%;
+
+}
+
+.content-dashboard{
+    margin-top: 150px;
+    margin-right: 40px;
+    margin-left: 40px;
+    /* margin-bottom: 150px; */
+    /* width: 100%; */
+
+    /* padding: 40px 40px 150px 150px; */
+    padding-bottom:150px ;
+
+
+    
+}
+
+.box-table{
+    background: #f3f5f7;
+    border: 4px solid #000000;
+    border-radius: 20px ;
+    width: 100%;
+    padding: 20px 10px 30px 30px;
+}
+
+.table-dashboard{
+    
+    text-align: center;
+    font-style: inherit;
+    /* align-items: center; */
+    /* table-layout: auto; */
+    table-layout:fixed;
+    border-collapse: collapse;
+    white-space:normal;
+    /* background-color: ; */
+
+}
+
+.table-dashboard td{
+    
+    overflow: hidden; 
+
+}
+
+
+
+
+
+
+
+/* END UNTUK TABEL DASHBOARD */
+
+/* FOOTER */
+
+footer {
+    height: 50px;
+    /* position: fixed; */
+    /* margin-top: 20px; */
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+}
+
+/* END FOOTER */
