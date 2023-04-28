@@ -31,6 +31,11 @@
     <script src=https://cdn.datatables.net/1.9.4/assets/js/jquery.dataTables.min.js></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.9.4/css/jquery.dataTables.css"> -->
 
+    <!-- GRAPH -->
+
+    <script type="text/javascript" src="js/HTMLtable2chart/graficarBarras.js"></script>
+    <script type="text/javascript" src="js/HTMLtable2chart/tabla2array.js"></script>
+
 </head>
 
 <body>
@@ -99,7 +104,7 @@
                         <div id="collapseTableOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                             <div class="card-body">
                                 <div class="col-dashboard">
-                                    <table id="example" class="table table-bordered table-success table-dashboard">
+                                    <table id="produksi-information" class="table table-bordered table-success table-dashboard">
                                         <thead>
                                             <tr>
                                                 <th onclick="sortTable(0)">Kinerja Produksi</th>
@@ -130,10 +135,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
                                 <div class="col-dashboard">
                                     <table id="example" class="table table-bordered table-success table-dashboard">
                                         <thead>
@@ -163,18 +164,7 @@
 
                         <div id="collapseGraphOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                             <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                                squid. 3 wolf
-                                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                                laborum eiusmod.
-                                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                assumenda
-                                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                nesciunt sapiente ea
-                                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                farm-to-table, raw denim
-                                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable
-                                VHS.
+                                <canvas id="produksi-grafik" class="graph-table-dashboard">Canvas is not supported</canvas>
                             </div>
                         </div>
                     </div>
@@ -203,7 +193,7 @@
                         <div id="collapseTableTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="card-body">
                                 <div class="col-dashboard">
-                                    <table id="example3" class="table table-bordered table-success table-dashboard">
+                                    <table id="example2" class="table table-bordered table-success table-dashboard">
                                         <thead>
                                             <tr>
                                                 <th onclick="sortTable(0)">Kondisi Hidrologi (Discharge)</th>
@@ -234,10 +224,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
                                 <div class="col-dashboard">
                                     <table id="example" class="table table-bordered table-success table-dashboard">
                                         <thead>
@@ -297,51 +283,40 @@
             <div class="row box-table">
                 <div class="col">
                     <div class="card">
-                        <h5 class="card-header" role="tab" id="headingTwo">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTableTwo"
-                                aria-expanded="true" aria-controls="collapseTableTwo" class="d-block">
+                        <h5 class="card-header" role="tab" id="headingThree">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTableThree"
+                                aria-expanded="true" aria-controls="collapseTableThree" class="d-block">
                                 <i class="fa fa-chevron-down pull-right"></i> Table Information
                             </a>
                         </h5>
 
-                        <div id="collapseTableTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+                        <div id="collapseTableThree" class="collapse show" role="tabpanel"
+                            aria-labelledby="headingThree">
                             <div class="card-body">
                                 <div class="col-dashboard">
                                     <table id="example3" class="table table-bordered table-success table-dashboard">
                                         <thead>
                                             <tr>
-                                                <th onclick="sortTable(0)">Kondisi Hidrologi (Discharge)</th>
-                                                <th onclick="sortTable(1)">Rata - Rata Unit 1</th>
-                                                <th onclick="sortTable(2)">Rata - Rata Unit 2</th>
-                                                <th onclick="sortTable(3)">Total Rata - Rata</th>
+                                                <th>Kondisi Hidrologi (Water Level)</th>
+                                                <th onclick="sortTable(0)">Level</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>Daily</td>
-                                                <td>55.00</td>
-                                                <td>45.46</td>
-                                                <td>58.76</td>
+                                                <td>903.50</td>
                                             </tr>
                                             <tr>
                                                 <td>Monthly</td>
-                                                <td>56.00</td>
-                                                <td>51.32</td>
-                                                <td>60.85</td>
+                                                <td>905.43</td>
                                             </tr>
                                             <tr>
                                                 <td>Yearly</td>
-                                                <td>55.5</td>
-                                                <td>48.39</td>
-                                                <td>59.805</td>
+                                                <td>903.9</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
-                                <div class="col-dashboard"></div>
                                 <div class="col-dashboard">
                                     <table id="example" class="table table-bordered table-success table-dashboard">
                                         <thead>
@@ -351,7 +326,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>m<sup>3</sup>/s</td>
+                                                <td>m</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -362,14 +337,141 @@
                 </div>
                 <div class="col">
                     <div class="card">
-                        <h5 class="card-header" role="tab" id="headingTwo">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseGraphTwo"
-                                aria-expanded="true" aria-controls="collapseGraphTwo" class="d-block">
+                        <h5 class="card-header" role="tab" id="headingThree">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseGraphThree"
+                                aria-expanded="true" aria-controls="collapseGraphThree" class="d-block">
                                 <i class="fa fa-chevron-down pull-right"></i> Graph Information
                             </a>
                         </h5>
 
-                        <div id="collapseGraphTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+                        <div id="collapseGraphThree" class="collapse show" role="tabpanel"
+                            aria-labelledby="headingThree">
+                            <div class="card-body">
+                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                                squid. 3 wolf
+                                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                                laborum eiusmod.
+                                Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                                assumenda
+                                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                                nesciunt sapiente ea
+                                proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                farm-to-table, raw denim
+                                aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable
+                                VHS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row box-table-header">
+                <div class="row-dashboard">
+                    <h4>Laporan Pemeliharaan Sungai</h4>
+                </div>
+            </div>
+
+            <div class="row box-table">
+                <div class="col">
+                    <div class="card">
+                        <h5 class="card-header" role="tab" id="headingFour">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTableFour"
+                                aria-expanded="true" aria-controls="collapseTableFour" class="d-block">
+                                <i class="fa fa-chevron-down pull-right"></i> Table Information
+                            </a>
+                        </h5>
+
+                        <div id="collapseTableFour" class="collapse show" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="card-body">
+                                <div class="col-dashboard">
+                                    <table id="example3" class="table table-bordered table-success table-dashboard">
+                                        <thead>
+                                            <tr>
+                                                <th onclick="sortTable(0)" rowspan="2">Pemeliharaan Sungai</th>
+                                                <th onclick="sortTable(1)" colspan="2">Trashboom 1</th>
+                                                <th onclick="sortTable(2)" colspan="2">Trashboom 2</th>
+                                                <th onclick="sortTable(3)" colspan="2">Intake Rack</th>
+                                                <th onclick="sortTable(4)" colspan="2">Spiral Case</th>
+                                            </tr>
+                                            <tr>
+                                                <td>Volume (m<sup>3</sup>)</td>
+                                                <td>Pencapaian (%)</td>
+                                                <td>Volume (m<sup>3</sup>)</td>
+                                                <td>Pencapaian (%)</td>
+                                                <td>Volume (m<sup>3</sup>)</td>
+                                                <td>Pencapaian (%)</td>
+                                                <td>Volume (m<sup>3</sup>)</td>
+                                                <td>Pencapaian (%)</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Plastik</td>
+                                                <td>2</td>
+                                                <td>76</td>
+                                                <td>16</td>
+                                                <td>90</td>
+                                                <td>1</td>
+                                                <td>45</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Eceng Gondok</td>
+                                                <td>2</td>
+                                                <td>34</td>
+                                                <td>10</td>
+                                                <td>50</td>
+                                                <td>1</td>
+                                                <td>45</td>
+                                                <td>5</td>
+                                                <td>84</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lain - Lain</td>
+                                                <td>3</td>
+                                                <td>56</td>
+                                                <td>1</td>
+                                                <td>3</td>
+                                                <td>2</td>
+                                                <td>75</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-dashboard">
+                                    <table id="example" class="table table-bordered table-success table-dashboard">
+                                        <thead>
+                                            <tr>
+                                                <th>Satuan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>m</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <h5 class="card-header" role="tab" id="headingFour">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseGraphFour"
+                                aria-expanded="true" aria-controls="collapseGraphFour" class="d-block">
+                                <i class="fa fa-chevron-down pull-right"></i> Graph Information
+                            </a>
+                        </h5>
+
+                        <div id="collapseGraphFour" class="collapse show" role="tabpanel" aria-labelledby="headingFour">
                             <div class="card-body">
                                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
                                 squid. 3 wolf
@@ -453,6 +555,22 @@
         var date = new Date().getFullYear();
 
         document.getElementById("get-year").innerHTML = date;
+
+        var misParam ={
+        miMargen : 0.80,
+        separZonas : 0.05,
+        tituloGraf : "Title of Chart",
+        tituloEjeX : "Country",
+        tituloEjeY : "Backlog Count",
+        nLineasDiv : 10,
+        mysColores :[
+                        ["rgba(93,18,18,1)","rgba(196,19,24,1)"],  //red
+                        ["rgba(171,115,51,1)","rgba(251,163,1,1)"], //yellow
+                    ],
+        anchoLinea : 2,
+    };
+
+    obtener_datos_tabla_convertir_en_array('produksi-information',graficarBarras,'produksi-grafik','750','480',misParam,true);
 
 
 

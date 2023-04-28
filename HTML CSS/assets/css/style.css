@@ -750,10 +750,12 @@ p {
     /* align-items: center; */
     /* table-layout: auto; */
     /* table-layout: fixed; */
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     white-space: normal;
     /* background-color: ; */
-    overflow-x: auto;
+    /* overflow-x: auto; */
+    width: 50%;
+    overflow-x:scroll;
 
 }
 
@@ -763,6 +765,12 @@ p {
 
 }
 
+.graph-table-dashboard{
+    width:100%;
+    height:100%; 
+    border: 1px solid black;
+    text-align: center;
+}
 
 
 
