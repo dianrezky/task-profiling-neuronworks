@@ -320,15 +320,6 @@ $customer_total_income = mysqli_fetch_array($customer_total_income);
 
                                     while ($employees = mysqli_fetch_array($get_all_employees)) {
 
-                                        // while ($reportsTo_employees = mysqli_fetch_array($reportsTo_employees)) {
-                                        //     if ($get_all_employees['reportsTo'] == $reportsTo_employees) {
-
-                                        //         $reportsToName = $get_all_employees['firstName'] + $get_all_employees['lastName'];
-
-
-                                        //     }
-
-                                        // }
                                         echo
                                         '<tr>
                                             <td>' . $employees['firstName'] . ' ' . $employees['lastName'] . '</td>

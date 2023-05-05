@@ -1,0 +1,22 @@
+
+SQL QUERY:
+
+1. "SELECT * FROM employees WHERE employeeNumber ='$id'"
+2. "UPDATE employees SET email ='$email' where employeeNumber='$id'"
+3. "DELETE FROM employees where employeeNumber='$id'"
+4. "SELECT COUNT(*) FROM employees"
+5. "SELECT * FROM employees WHERE jobTitle='President'"
+6. "SELECT SUM(amount) as total_income FROM payments"
+7. "SELECT COUNT(DISTINCT productVendor) as totalProductVendor FROM products"
+8. "SELECT * FROM employees INNER JOIN offices ON offices.officeCode = employees.officeCode LIMIT $mulai, $halaman"
+9. "SELECT reportsTo FROM employees"
+10. "SELECT COUNT(*) FROM customers"
+11. "SELECT * FROM customers ORDER BY creditLimit DESC LIMIT 1"
+12. "SELECT COUNT(*) FROM orders INNER JOIN customers ON orders.customerNumber = customers.customerNumber WHERE orders.customerNumber='$customer_number_highest_limit' AND orders.status='Shipped'"
+13. "SELECT SUM(amount) as customer_payment FROM payments INNER JOIN customers ON payments.customerNumber = customers.customerNumber WHERE payments.customerNumber='$customer_number_highest_limit'"
+
+
+
+
+
+

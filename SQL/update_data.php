@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
 
 
 $get_user_data = mysqli_query($koneksi, "SELECT * FROM employees WHERE employeeNumber ='$id'")->fetch_assoc();
-// $get_user_data = mysqli_fetch_assoc($get_user_data);
+
 ?>
 
 
