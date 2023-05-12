@@ -10,3 +10,4 @@ Notes: Silahkan jalankan index.html dan pilih task yang ingin dilihat.Terimakasi
 
 ## SQL:
 1. Week 1 : Membuat query sederhana untuk SQL. Data SQL menggunakan data dari mysqltutorial.org/mysql-sample-database.aspx 
+2. Week 2 : Membuat Query dan Database sesuai dengan form GOJEK
