@@ -40,6 +40,7 @@ select COUNT(*) from orderdetails ;
 
 -- SOAL NO 4
 
+-- CONTOH 1 SEBELUM DI PERBAIKI
 -- Table for users
 CREATE TABLE users (
     user_id INT NOT NULL AUTO_INCREMENT,
@@ -92,7 +93,6 @@ CREATE TABLE orders (
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
     FOREIGN KEY (driver_id) REFERENCES drivers(driver_id)
 );
-
 
 
 -- Insert 20 data ke tabel users
@@ -209,6 +209,108 @@ INSERT INTO orders (customer_id, driver_id, pickup_address, tujuan_address, orde
 (9, 16, 'Jl. Sudirman No. 80', 'Jl. Thamrin No. 90', '2023-05-12 12:00:00', '2023-05-12 12:30:00', '2023-05-12 13:30:00', 30.0, 300000, 'Cash', 300000, NULL, NULL, 'GoRide'),
 (16, 10, 'Jl. Kuningan No. 100', 'Jl. Gatot Subroto No. 110', '2023-05-12 13:00:00', '2023-05-12 13:30:00', '2023-05-12 14:30:00', 35.0, 350000, 'Credit Card', 350000, NULL, NULL, 'GoSend'),
 (10, 17, 'Jl. Thamrin No. 120', 'Jl. Sudirman No. 130', '2023-05-12 14:00:00', '2023-05-12 14:30:00', '2023-05-12 15:30:00', 40.0, 400000, 'Cash', 400000, NULL, NULL, 'GoRide');
+
+
+-- CONTOH 2 SETELAH DIPERBAIKI
+
+
+-- Table for users
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    identitas TEXT NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (user_id)
+);
+
+-- Table for customers
+CREATE TABLE customers (
+    customer_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    alamat TEXT NOT NULL,
+    PRIMARY KEY (customer_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+CREATE TABLE vehicles(
+  vehicle_id INT NOT null AUTO_INCREMENT,
+  plat_nomor VARCHAR(20) NOT NULL,
+  tipe_kendaraan VARCHAR(50) NOT NULL,
+  tipe_merk_kendaraan VARCHAR(50) NOT NULL,
+  PRIMARY KEY (vehicle_id)
+);
+-- Table for drivers
+CREATE TABLE drivers (
+    driver_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    vehicle_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(vehicle_id),
+    PRIMARY KEY (driver_id)
+);
+CREATE TABLE paymentMethod(
+  payment_method_id  INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  type VARCHAR(100) NOT NULL,
+  balance INT NOT NULL,
+  PRIMARY KEY (payment_method_id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+CREATE TABLE vouchers(
+  voucher_id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50),
+  potongan_harga INT NOT NULL,
+  PRIMARY KEY (voucher_id)
+);
+
+CREATE TABLE payments(
+  payment_id INT NOT NULL AUTO_INCREMENT,
+  voucher_id INT NOT NULL,
+  journeyFee INT NOT NULL,  
+  appFee INT NOT NULL,
+  total INT NOT NULL, 
+  methode INT NOT NULL,
+  PRIMARY KEY (payment_id),
+  FOREIGN KEY (voucher_id) REFERENCES vouchers(voucher_id),
+  FOREIGN KEY (methode) REFERENCES paymentMethod(payment_method_id)
+);
+CREATE TABLE orderDetails(
+    detail_order_id INTEGER NOT NULL AUTO_INCREMENT,
+    order_date DATETIME NOT NULL,
+    pickup_time TIME NOT NULL,
+    arrival_time TIME NOT NULL,
+    time_spent TIME NOT NULL,
+    PRIMARY KEY (detail_order_id)
+);
+-- Table for orders
+CREATE TABLE orders (
+    order_id INT NOT NULL AUTO_INCREMENT,
+    customer_id INT NOT NULL,
+    driver_id INT NOT NULL,
+    payment_id INT NOT NULL,
+    tipe_order VARCHAR(50) NOT NULL,
+    detail_order_id INT NOT NULL,
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (driver_id) REFERENCES drivers(driver_id),
+    FOREIGN KEY (payment_id) REFERENCES payments(payment_id),
+    FOREIGN KEY (detail_order_id) REFERENCES orderDetails(detail_order_id)
+);
+
+
+CREATE TABLE locations(
+  locations_id INT NOT NULL AUTO_INCREMENT,
+  order_id INT NOT NULL,
+  pickup_name VARCHAR(255) NOT NULL,
+  tujuan_name VARCHAR(255) NOT NULL,
+  pickup_address VARCHAR(255) NOT NULL,
+  tujuan_address VARCHAR(255) NOT NULL,
+  jarak_km DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (locations_id),
+  FOREIGN KEY (order_id) REFERENCES orders(order_id)
+);
+
 
 
 -- SOAL NO 5
