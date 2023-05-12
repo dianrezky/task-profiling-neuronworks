@@ -1,0 +1,296 @@
+-- SOAL NO 1
+
+-- SOAL no 1A
+START TRANSACTION;
+
+SELECT @customerNumber:=MAX(customerNumber)+1 FROM customers;
+
+INSERT INTO customers (customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1, city,  country) 
+VALUES 
+(@customerNumber,'Samsung Ltd', 'Auriga', 'Bintang', '1234567890', 'Germann Street', 'German', 'Germany'),
+(@customerNumber+1,'Soler Corp', 'Caramel', 'Jendra', '2345678901', 'Busan','Busan', 'South Korea'),
+(@customerNumber+2,'Samsung Ltd', 'Alfa', 'Centauri', '3456789012', 'German Street','German Street', 'Germany'),
+(@customerNumber+3,'Soler Corp', 'Kenneth', 'Aldebaran', '4567890123', 'Busan', 'Busan','South Korea'),
+(@customerNumber+4,'Zahid Cooperation', 'Mikayla', 'Zahid', '5678901234', 'S Street','S Street', 'Singapore');
+COMMIT;
+
+-- SOAL NO 1B
+
+START TRANSACTION;
+SELECT @orderNumber:=MAX(orderNumber)+1 FROM orders;
+INSERT INTO orders (orderNumber, orderDate, requiredDate, shippedDate, status, comments, customerNumber)
+values (@orderNumber, '2023-05-11', '2023-05-15', NULL, 'On Hold', 'Waiting for stock', 500);
+UPDATE customers SET phone = '0811515168920' WHERE customerNumber = 500;
+COMMIT;
+
+
+START TRANSACTION;
+DELETE FROM orderdetails WHERE orderNumber = 10505;
+SELECT * FROM orders WHERE orderNumber = 10505;
+COMMIT;
+
+-- SOAL NO 1C
+
+START TRANSACTION;
+DELETE FROM orderdetails  WHERE orderNumber = 10101;
+select COUNT(*) from orderdetails ;
+rollback;
+select COUNT(*) from orderdetails ;
+
+
+-- SOAL NO 4
+
+-- Table for users
+CREATE TABLE users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    identitas TEXT NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (user_id)
+);
+
+-- Table for customers
+CREATE TABLE customers (
+    customer_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    alamat TEXT NOT NULL,
+    PRIMARY KEY (customer_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Table for drivers
+CREATE TABLE drivers (
+    driver_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    plat_nomor VARCHAR(20) NOT NULL,
+    tipe_kendaraan VARCHAR(50) NOT NULL,
+    merk_kendaraan VARCHAR(50) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    PRIMARY KEY (driver_id)
+);
+
+-- Table for orders
+CREATE TABLE orders (
+    order_id INT NOT NULL AUTO_INCREMENT,
+    customer_id INT NOT NULL,
+    driver_id INT NOT NULL,
+    pickup_address VARCHAR(255) NOT NULL,
+    tujuan_address VARCHAR(255) NOT NULL,
+    order_date DATETIME NOT NULL,
+    pickup_time DATETIME NOT NULL,
+    arrival_time DATETIME NOT NULL,
+    jarak_km DECIMAL(10,2) NOT NULL,
+    harga_asli DECIMAL(10,2) NOT NULL,
+    metode_pembayaran VARCHAR(50) NOT NULL,
+    total_bayar DECIMAL(10,2) NOT NULL,
+    voucher VARCHAR(50),
+    potongan_harga DECIMAL(10,2),
+    tipe_order VARCHAR(50) NOT NULL,
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (driver_id) REFERENCES drivers(driver_id)
+);
+
+
+
+-- Insert 20 data ke tabel users
+INSERT INTO users (username, email, identitas, phone_number, password)
+VALUES 
+('admin', 'admin@example.com', 1234567890, '081234567890', MD5('password1')),
+('auriga', 'auriga@example.com', 1234567891, '081234567891', MD5('password2')),
+('alfa', 'alfa@example.com', 1234567892, '081234567892', MD5('password3')),
+('centauri', 'centauri@example.com', 1234567893, '081234567893', MD5('password4')),
+('fiyan', 'fiyan@example.com', 1234567894, '081234567894', MD5('password5')),
+('bara', 'bara@example.com', 1234567895, '081234567895', MD5('password6')),
+('caramel', 'caramel@example.com', 1234567896, '081234567896', MD5('password7')),
+('starla', 'starla@example.com', 1234567897, '081234567897', MD5('password8')),
+('raka', 'urakaexample.com', 1234567898, '081234567898', MD5('password9')),
+('zahid', 'zahid@example.com', 1234567899, '081234567899', MD5('password10')),
+('ara', 'ara@example.com', 1234567800, '081234567800', MD5('password11')),
+('alfath', 'user12@example.com', 1234567801, '081234567801', MD5('password12')),
+('erlan', 'erlan@example.com', 1234567802, '081234567802', MD5('password13')),
+('rajendra', 'rajendra@example.com', 1234567803, '081234567803', MD5('password14')),
+('syahid', 'syahid@example.com', 1234567804, '081234567804', MD5('password15')),
+('arkan', 'arkan@example.com', 1234567805, '081234567805', MD5('password16')),
+('raka', 'raka@example.com', 1234567806, '081234567806', MD5('password17')),
+('test', 'test@example.com', 1234567807, '081234567807', MD5('password18')),
+('mikayla', 'mikayla@example.com', 1234567808, '081234567808', MD5('password19')),
+('driver', 'driver@example.com', 1234567809, '081234567809', MD5('password20'));
+-- insert 20 data driver ke user
+INSERT INTO users (username, email, identitas, phone_number, password)
+VALUES
+('Budi','driver1@example.com','36229562398560','0858582826665',MD5('password1')),
+('Susi','driver2@example.com','36229562398561','0858582826665',MD5('password1')),
+('Agus','driver3@example.com','36229562398562','0858582826665',MD5('password1')),
+('Rony','driver4@example.com','36229562398563','0858582826665',MD5('password1')),
+('Rama', 'driver5@example.com','3622956239856','0858582826665',MD5('password1')),
+('Eko','driver6@example.com','362295623985607','0858582826665',MD5('password1')),
+('Rudi','driver7@example.com','362295623985608','0858582826665',MD5('password1')),
+('Tina','driver8@example.com','362295623985609','0858582826665',MD5('password1')),
+('Fauzi','driver9@example.com','3622956239856010','0858582826665',MD5('password1')),
+( 'Lina','driver10@example.com','3622956239856011','0858582826665',MD5('password1')),
+( 'Dendi','driver11@example.com','3622956239856012','0858582826665',MD5('password1')),
+( 'Ratna', 'driver12@example.com','3622956239856013','0858582826665',MD5('password1')),
+( 'Bayu', 'driver13@example.com','3622956239856014','0858582826665',MD5('password1')),
+( 'Pradipta', 'driver14@example.com','3622956239856015','0858582826665',MD5('password1')),
+( 'Hendra', 'driver15@example.com','3622956239856016','0858582826665',MD5('password1')),
+( 'Arya', 'driver16@example.com','3622956239856017','0858582826665',MD5('password1')),
+( 'Gita', 'driver17@example.com','3622956239856018','0858582826665',MD5('password1')),
+( 'Rudi', 'driver18@example.com','3622956239856019','0858582826665',MD5('password1')),
+( 'Diana', 'driver19@example.com','362295623985620','0858582826665',MD5('password1')),
+('Bowo', 'driver20@example.com','3622956239856021','0858582826665',MD5('password1'));
+-- Insert 20 data ke tabel customers
+INSERT INTO customers (user_id, alamat)
+VALUES 
+(1, 'Jl. Ahmad Yani No. 1'),
+(2, 'Jl. Ismata Raya Cinere'),
+(3, 'Jln. Ketapang Banten - Kec. Pamulang - TANGERANG SELATAN'),
+(4, 'Jln. Angsana I - II Banten - Kec. Pamulang - TANGERANG SELATAN'),
+(5, 'Jln. Pinus Barat I-VI - Kel. Pamulang Barat Banten - Kec. Pamulang - TANGERANG SELATAN'),
+(6, 'Jl. Asia Afrika No. 2'),
+(7, 'Jl. Sisingamangaraja No. 8'),
+(8, 'Jl. Hayam Wuruk No. 12'),
+(9, 'Jl. Gatot Subroto No. 30'),
+(10, 'Jl. HOS Cokroaminoto No. 4'),
+(11, 'Jln. Surya Kencana Banten - Kec. Pamulang - TANGERANG SELATAN'),
+(12, 'Jl. Pemuda No. 7'),
+(13, 'Jl. Kuningan No. 18'),
+(14, 'Jl. Tomang Raya No. 14'),
+(15, 'Jl. TB Simatupang No. 28'),
+(16, 'Jl. Letjen S. Parman No. 11'),
+(17, 'Jl. MT Haryono No. 22'),
+(18, 'Jl. HR Rasuna Said No. 33'),
+(19, 'Jl. Thamrin No. 45'),
+(20, 'Jl. Kemang Raya No. 8');
+-- insert 20 data driver
+INSERT INTO drivers (user_id, plat_nomor, tipe_kendaraan, merk_kendaraan)
+VALUES
+(2, 'B 1234 ABC', 'Mobil', 'Toyota Avanza'),
+(23, 'B 5678 DEF', 'Mobil', 'Daihatsu Xenia'),
+(24, 'B 9012 GHI', 'Motor', 'Honda Beat'),
+(25, 'B 3456 JKL', 'Motor', 'Yamaha Nmax'),
+(26, 'B 7890 MNO', 'Mobil', 'Honda Jazz'),
+(27, 'B 2345 PQR', 'Motor', 'Honda Vario'),
+(28, 'B 6789 STU', 'Mobil', 'Suzuki Ertiga'),
+(29, 'B 1234 VWX', 'Motor', 'Yamaha Mio'),
+(30, 'B 5678 YZA', 'Mobil', 'Toyota Kijang Inova'),
+(31,'B 9012 BCD', 'Motor', 'Honda Supra'),
+(32,'B 3456 EFG', 'Mobil', 'Daihatsu Ayla'),
+(33,'B 7890 HIJ', 'Mobil', 'Honda City'),
+(34, 'B 2345 KLM', 'Motor', 'Yamaha R15'),
+(35,'B 6789 NOP', 'Mobil', 'Suzuki Ignis'),
+(36,'B 1234 QRS', 'Mobil', 'Honda HRV'),
+(37,'B 5678 TUV', 'Motor', 'Honda CBR'),
+(38,'B 9012 WXY', 'Mobil', 'Toyota Fortuner'),
+(39, 'B 3456 ZAB', 'Motor', 'Yamaha R25'),
+(40, 'B 7890 CDE', 'Mobil', 'Mazda CX 5'),
+(20, 'B 2345 FGH', 'Mobil', 'Honda Civic');
+-- insert 20 data order
+INSERT INTO orders (customer_id, driver_id, pickup_address, tujuan_address, order_date, pickup_time, arrival_time, jarak_km, harga_asli, metode_pembayaran, total_bayar, voucher, potongan_harga, tipe_order) VALUES
+(1, 2, 'Jl. Sudirman No. 10', 'Jl. Asia Afrika No. 20', '2022-05-12 10:00:00', '2022-05-12 10:15:00', '2022-05-12 10:30:00', 10.50, 100000, 'Credit Card', 90000, 'VOUCHER20', 10000, 'Food Delivery'),
+(2, 3, 'Jl. Pangeran Diponegoro No. 15', 'Jl. Imam Bonjol No. 30', '2022-05-12 11:00:00', '2022-05-12 11:30:00', '2022-05-12 12:00:00', 20.75, 150000, 'Cash', 150000, NULL, NULL, 'GoSend'),
+(1, 4, 'Jl. Gatot Subroto No. 25', 'Jl. Rasuna Said No. 40', '2022-05-12 12:00:00', '2022-05-12 12:15:00', '2022-05-12 12:30:00', 15.25, 120000, 'Credit Card', 100000, 'VOUCHER10', 20000, 'Food Delivery'),
+(3, 8, 'Jl. Jend. Sudirman No. 50', 'Jl. M.H. Thamrin No. 60', '2022-05-12 13:00:00', '2022-05-12 13:30:00', '2022-05-12 14:00:00', 25.00, 200000, 'Cash', 200000, NULL, NULL, 'GoSend'),
+(4, 3, 'Jl. Pemuda No. 75', 'Jl. Veteran No. 90', '2022-05-12 14:00:00', '2022-05-12 14:30:00', '2022-05-12 15:00:00', 12.50, 90000, 'Credit Card', 80000, 'VOUCHER20', 10000, 'Food Delivery'),
+(5, 7, 'Jl. Thamrin No. 100', 'Jl. Sudirman No. 110', '2022-05-12 15:00:00', '2022-05-12 15:15:00', '2022-05-12 15:30:00', 30.00, 250000, 'Cash', 250000, NULL, NULL, 'GoSend'),
+(6, 4, 'Jl. Sudirman No. 1', 'Jl. Thamrin No. 2', '2023-05-12 08:00:00', '2023-05-12 08:30:00', '2023-05-12 09:30:00', 10.5, 100000, 'Cash', 100000, NULL, NULL, 'GoRide'),
+(7, 6, 'Jl. Gatot Subroto No. 10', 'Jl. Kuningan No. 20', '2023-05-12 09:00:00', '2023-05-12 09:30:00', '2023-05-12 10:30:00', 15.5, 150000, 'Credit Card', 150000, NULL, NULL, 'GoCar'),
+(8, 5, 'Jl. Thamrin No. 50', 'Jl. Sudirman No. 60', '2023-05-12 10:00:00', '2023-05-12 10:30:00', '2023-05-12 11:30:00', 20.0, 200000, 'Cash', 200000, NULL, NULL, 'GoRide'),
+(20, 5, 'Jl. Kuningan No. 30', 'Jl. Sudirman No. 70', '2023-05-12 11:00:00', '2023-05-12 11:30:00', '2023-05-12 12:30:00', 25.0, 250000, 'Credit Card', 250000, NULL, NULL, 'GoCar'),
+(14, 4, 'Teras Kota BSD', 'Jl. Gatot Subroto No. 110', '2023-05-12 13:00:00', '2023-05-12 13:30:00', '2023-05-12 14:30:00', 35.0, 350000, 'Credit Card', 350000, NULL, NULL, 'GoCar'),
+(10, 7, 'AEON Tangerang', 'Jl. Sudirman No. 130', '2023-05-12 14:00:00', '2023-05-12 14:30:00', '2023-05-12 15:30:00', 40.0, 400000, 'Cash', 400000, NULL, NULL, 'GoRide'),
+(11, 3, 'Summarecon Mall Serpong', 'Jl. Ismaya Raya Cinere', '2023-05-12 08:00:00', '2023-05-12 08:30:00', '2023-05-12 09:30:00', 10.5, 100000, 'Cash', 100000, NULL, NULL, 'GoRide'),
+(12, 8, 'Starbucks Pamulang', 'Jl. Ismaya Raya Pamulang', '2023-05-12 09:00:00', '2023-05-12 09:30:00', '2023-05-12 10:30:00', 15.5, 150000, 'Credit Card', 150000, NULL, NULL, 'GoFood'),
+(13, 12, 'Jl. Thamrin No. 50', 'Jl. Sudirman No. 60', '2023-05-12 10:00:00', '2023-05-12 10:30:00', '2023-05-12 11:30:00', 20.0, 200000, 'Cash', 200000, NULL, NULL, 'GoSend'),
+(15, 19, 'Jl. Kuningan No. 30', 'Jl. Sudirman No. 70', '2023-05-12 11:00:00', '2023-05-12 11:30:00', '2023-05-12 12:30:00', 25.0, 250000, 'Credit Card', 250000, NULL, NULL, 'GoFood'),
+(15, 10, 'Jl. Sudirman No. 80', 'Jl. Thamrin No. 90', '2023-05-12 12:00:00', '2023-05-12 12:30:00', '2023-05-12 13:30:00', 30.0, 300000, 'Cash', 300000, NULL, NULL, 'GoFood'),
+(9, 16, 'Jl. Sudirman No. 80', 'Jl. Thamrin No. 90', '2023-05-12 12:00:00', '2023-05-12 12:30:00', '2023-05-12 13:30:00', 30.0, 300000, 'Cash', 300000, NULL, NULL, 'GoRide'),
+(16, 10, 'Jl. Kuningan No. 100', 'Jl. Gatot Subroto No. 110', '2023-05-12 13:00:00', '2023-05-12 13:30:00', '2023-05-12 14:30:00', 35.0, 350000, 'Credit Card', 350000, NULL, NULL, 'GoSend'),
+(10, 17, 'Jl. Thamrin No. 120', 'Jl. Sudirman No. 130', '2023-05-12 14:00:00', '2023-05-12 14:30:00', '2023-05-12 15:30:00', 40.0, 400000, 'Cash', 400000, NULL, NULL, 'GoRide');
+
+
+-- SOAL NO 5
+
+
+-- 5A SELECT
+
+
+SELECT username, COUNT(*) AS jumlah_pesanan
+FROM users
+INNER JOIN customers ON users.user_id = customers.user_id
+INNER JOIN orders ON customers.customer_id = orders.customer_id
+GROUP BY users.user_id;
+
+
+-- 5B
+
+INSERT INTO users (username, email, identitas, phone_number, password)
+VALUES ('Dumdum', 'dumdum@example.com', '1234567890', '081234567890', 'password');
+
+INSERT INTO customers (user_id, alamat)
+SELECT user_id, 'Jalan Cikini No. 12' FROM users WHERE username = 'Dumdum';
+
+
+INSERT INTO users (username, email, identitas, phone_number, password)
+SELECT 'moana', 'mooana@example.com', '1234567890', '081234567890', 'password'
+FROM DUAL
+WHERE NOT EXISTS (SELECT * FROM users WHERE email = 'doana@example.com');
+INSERT INTO customers (user_id, alamat)
+SELECT user_id, 'Jalan Thamrin No. 10'
+FROM users
+WHERE email = 'moana@example.com';
+
+
+-- 5C update 
+
+UPDATE drivers 
+SET tipe_kendaraan = 'ferari' 
+WHERE driver_id IN (
+  SELECT driver_id 
+  FROM orders 
+  WHERE MONTH(arrival_time) = MONTH(NOW())
+  GROUP BY driver_id
+  HAVING COUNT(*) > 10
+);
+
+
+-- 5D
+
+DELETE FROM users 
+WHERE user_id NOT IN 
+(SELECT user_id FROM customers 
+UNION SELECT user_id FROM drivers);
+
+-- 5E
+
+SELECT *
+FROM users
+WHERE user_id = (
+  SELECT customer_id
+  FROM orders
+  GROUP BY customer_id
+  ORDER BY SUM(total_bayar) DESC
+  LIMIT 1
+);
+
+-- 5F
+
+SELECT o.order_id, o.customer_id, o.pickup_address, d.driver_id, d.plat_nomor, d.tipe_kendaraan, d.merk_kendaraan
+FROM orders o
+INNER JOIN drivers d ON o.driver_id = d.driver_id;
+
+-- 5G
+
+-- UNION
+SELECT orders.order_id, customers.alamat, drivers.plat_nomor, drivers.tipe_kendaraan, drivers.merk_kendaraan
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.customer_id
+INNER JOIN drivers ON orders.driver_id = drivers.driver_id
+WHERE customers.alamat LIKE '%Tangerang%';
+
+-- INTERSECT
+SELECT DISTINCT o.customer_id 
+FROM orders o 
+INNER JOIN customers c ON o.customer_id = c.customer_id;
