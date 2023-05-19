@@ -1,5 +1,5 @@
 <?php
-include '../template/header.php';
+include_once '../template/header.php';
 
 if (!isset($_SESSION['status'])) {
     echo "
@@ -207,7 +207,7 @@ class Podcast
 }
 
 $podcast = new Podcast();
-
+$hasil = bmi();
 
 ?>
 <!-- Content Row -->
@@ -233,9 +233,9 @@ $podcast = new Podcast();
                                             <div class="card mb-4">
                                                 <div class="card-body text-center">
                                                     <img src="../assets/image/user.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                                                    <h5 class="my-3"><?php echo $data['username'] ?></h5>
-                                                    <p class="text-muted mb-1"><?php echo $data['level'] ?></p>
-                                                    <p class="text-muted mb-4"><?php echo $data['phone_number'] ?></p>
+                                                    <h5 class="my-3"><?php echo htmlspecialchars($data['username']) ?></h5>
+                                                    <p class="text-muted mb-1"><?php echo htmlspecialchars($data['level']) ?></p>
+                                                    <p class="text-muted mb-4"><?php echo htmlspecialchars($data['phone_number']) ?></p>
                                                     <div class="d-flex justify-content-center mb-2">
                                                         <button type="button" class="btn btn-primary">Edit</button>
                                                     </div>
@@ -251,7 +251,7 @@ $podcast = new Podcast();
                                                             <p class="mb-0">Full Name</p>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <p class="text-muted mb-0"><?php echo $data['username'] ?></p>
+                                                            <p class="text-muted mb-0"><?php echo htmlspecialchars($data['username']) ?></p>
                                                         </div>
                                                     </div>
                                                     <hr>
@@ -260,7 +260,7 @@ $podcast = new Podcast();
                                                             <p class="mb-0">Email</p>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <p class="text-muted mb-0"><?php echo $data['email'] ?></p>
+                                                            <p class="text-muted mb-0"><?php echo htmlspecialchars($data['email']) ?></p>
                                                         </div>
                                                     </div>
                                                     <hr>
@@ -269,7 +269,7 @@ $podcast = new Podcast();
                                                             <p class="mb-0">Phone</p>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <p class="text-muted mb-0"><?php echo $data['phone_number'] ?></p>
+                                                            <p class="text-muted mb-0"><?php echo htmlspecialchars($data['phone_number']) ?></p>
                                                         </div>
                                                     </div>
                                                     <hr>
@@ -278,7 +278,7 @@ $podcast = new Podcast();
                                                             <p class="mb-0">Address</p>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <p class="text-muted mb-0"><?php echo $data['alamat'] ?></p>
+                                                            <p class="text-muted mb-0"><?php echo htmlspecialchars($data['alamat']) ?></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -339,11 +339,10 @@ $podcast = new Podcast();
                             </form>
                             <div class="row">
                                 <?php
-                                $hasil = bmi();
                                 // Tampilkan hasil di bawah formulir jika sudah ada
                                 if ($hasil !== "") {
                                     echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                                    $hasil
+                                    ". htmlspecialchars($hasil) ."
                                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                       <span aria-hidden='true'>&times;</span>
                                     </button>
