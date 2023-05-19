@@ -15,30 +15,29 @@ $usernamesesi = $_SESSION['username'];
 
 
 // Menggunakan kelas Database
-$database = new Database("task_gojek");
+$database_user = new Database("task_gojek");
 
 $table = "users";
 
 
-$data = $database->innerJoin($table, "customers", "users.user_id = customers.user_id");
+$data = $database_user->innerJoin($table, "customers", "users.user_id = customers.user_id");
 if (!empty($data)) {
-    $data = $data[0]; // Mengambil baris pertama dari hasil query
-    // Lakukan operasi dengan data yang telah diperoleh
-    // ...
+    $data = $data[0];
 } else {
     echo "Data tidak ditemukan";
 }
 
 //OFFICE
-
+$database= new Database("sql_task");
+$table = "employees";
+$columns = "COUNT(*) AS total_employees";
 //query total pegawai
-$total_employees = mysqli_query($koneksi, "SELECT COUNT(*) FROM employees");
-$total_employees = mysqli_fetch_array($total_employees);
+$total_employees = $database->selectCount($table);
 
-if ($total_employees == null) {
-    $total_employees = 'No Employees Available';
+if (!empty($total_employees)) {
+    $total_employees;
 } else {
-    $total_employees = $total_employees[0];
+    $total_employees = 'No Employees Available';
 }
 
 //query search president
