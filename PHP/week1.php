@@ -1,7 +1,5 @@
-<?php 
+<?php
 include '../template/header.php';
-
-// session_start();
 
 if (!isset($_SESSION['status'])) {
     echo "
@@ -13,8 +11,10 @@ if (!isset($_SESSION['status'])) {
 }
 
 $usernamesesi = $_SESSION['username'];
-//echo $usernamesesi;
-$data = mysqli_query($koneksi2, "SELECT * FROM users INNER JOIN customers ON users.user_id = customers.user_id where users.username = '$usernamesesi'");
+
+$data = mysqli_query($koneksi2, "SELECT * FROM users INNER JOIN customers 
+                    ON users.user_id = customers.user_id 
+                    where users.username = '$usernamesesi'");
 $data = mysqli_fetch_assoc($data);
 
 
@@ -24,7 +24,7 @@ $data = mysqli_fetch_assoc($data);
 $total_employees = mysqli_query($koneksi, "SELECT COUNT(*) FROM employees");
 $total_employees = mysqli_fetch_array($total_employees);
 
-if ($total_employees == NULL) {
+if ($total_employees == null) {
     $total_employees = 'No Employees Available';
 } else {
     $total_employees = $total_employees[0];
@@ -42,7 +42,9 @@ $total_payment = mysqli_fetch_assoc($total_payment);
 
 //query total target product vendor
 
-$total_product_vendor = mysqli_query($koneksi, "SELECT COUNT(DISTINCT productVendor) as totalProductVendor FROM products");
+$total_product_vendor = mysqli_query($koneksi, "SELECT 
+                                    COUNT(DISTINCT productVendor) 
+                                    as totalProductVendor FROM products");
 $total_product_vendor = mysqli_fetch_assoc($total_product_vendor);
 
 //query get all employees
@@ -77,7 +79,7 @@ $reportsTo_employees = mysqli_query($koneksi, "SELECT reportsTo FROM employees")
 $total_customers = mysqli_query($koneksi, "SELECT COUNT(*) FROM customers");
 $total_customers = mysqli_fetch_array($total_customers);
 
-if ($total_customers == NULL) {
+if ($total_customers == null) {
     $total_customers = 'No Customers Available';
 } else {
     $total_customers = $total_customers[0];
@@ -92,8 +94,11 @@ $customer_highest_limit = mysqli_fetch_array($customer_highest_limit);
 $customer_number_highest_limit = $customer_highest_limit['customerNumber'];
 $customer_order = mysqli_query(
     $koneksi,
-    "SELECT COUNT(*) FROM orders INNER JOIN customers ON orders.customerNumber = customers.customerNumber 
-    WHERE orders.customerNumber='$customer_number_highest_limit' AND orders.status='Shipped'"
+    "SELECT COUNT(*) FROM orders 
+    INNER JOIN customers 
+    ON orders.customerNumber = customers.customerNumber 
+    WHERE orders.customerNumber='$customer_number_highest_limit' 
+    AND orders.status='Shipped'"
 );
 $customer_order = mysqli_fetch_array($customer_order);
 
@@ -101,7 +106,11 @@ $customer_order = mysqli_fetch_array($customer_order);
 
 $customer_total_income = mysqli_query(
     $koneksi,
-    "SELECT SUM(amount) as customer_payment FROM payments INNER JOIN customers ON payments.customerNumber = customers.customerNumber 
+    "SELECT SUM(amount) 
+    as customer_payment 
+    FROM payments 
+    INNER JOIN customers 
+    ON payments.customerNumber = customers.customerNumber 
     WHERE payments.customerNumber='$customer_number_highest_limit'"
 );
 
@@ -116,7 +125,7 @@ function bmi()
         $kelamin   = $_POST['kelamin'];
         $tb        = $_POST['tb'];
         $bb        = $_POST['bb'];
-        if (($kelamin != NULL) && ($tb != NULL) && ($tb >= 110) && ($bb != NULL) && ($bb >= 12)) {
+        if (($kelamin != null) && ($tb != null) && ($tb >= 110) && ($bb != null) && ($bb >= 12)) {
 
 
 
@@ -141,7 +150,7 @@ function bmi()
 
             if ($kelamin == "Perempuan") {
                 $bbideal = ($tbcm - 100) - (0.15 * ($tbcm - 100));
-            } else if ($kelamin == "Laki-laki") {
+            } elseif ($kelamin == "Laki-laki") {
                 $bbideal = ($tbcm - 100) - (0.1 * ($tbcm - 100));
             }
 
@@ -167,41 +176,37 @@ function bmi()
     return $hasil;
 }
 
-class podcast{
-    var $title;
-    var $path;
-    var $source;
-    var $describe;
-    var $type;
+class Podcast
+{
+    public $title;
+    public $path;
+    public $source;
+    public $describe;
+    public $type;
 
-    function name_file($type){
-        if($type=="Kesehatan Mental"){
+    function namaFile($type)
+    {
+        if ($type == "Kesehatan Mental") {
             $path = "../assets/audio/Senggang Bersama Podcast 13 Menjaga Kesehatan Mental.mp3";
-        }
-        else if($type=="Diabetes"){
+        } elseif ($type == "Diabetes") {
             $path = "../assets/audio/Senggang Bersama Podcast 2 Diabetes.mp3";
         }
 
         return $path;
-
     }
 
-    function nama_podcast($type){
-        if($type=="Kesehatan Mental"){
+    function namaPodcast($type)
+    {
+        if ($type == "Kesehatan Mental") {
             $title = "Senggang Bersama Podcast 13: Menjaga Kesehatan Mental";
-        }
-        else if($type=="Diabetes"){
+        } elseif ($type == "Diabetes") {
             $title = "PODCAST SAPA SEHAT - MANIS BOLEH, DIABETES JANGAN! (HARI DIABETES SEDUNIA)";
         }
         return $title;
-
     }
-
-    
-
 }
 
-$podcast = new podcast();
+$podcast = new Podcast();
 
 
 ?>
@@ -211,7 +216,7 @@ $podcast = new podcast();
         <div class="container-fluid">
             <div class="row">
                 <!-- Area Chart -->
-                
+
                 <div class="col-xl-4 col-lg-5">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
@@ -354,15 +359,15 @@ $podcast = new podcast();
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
-                            <h5 class="font-weight-light"><b><?php echo $podcast->nama_podcast("Kesehatan Mental"); ?></b></h3>
-                            <div class="text-white mb-3"><span class="text-black-opacity-05"><small>By Tangan Belang<span class="sep">/</span> 18 February 2020 <span class="sep">/</span> 28:28</small></span></div>
-                            <p class="mb-4">Apakah kebahagiaan bisa mengatasi masalah? Bagaimana cara kami menjaga kesehatan mental di era digital saat ini? Sumber: <a target="_blank" href="https://www.youtube.com/watch?v=OrY0CfvY6TI&t=3s">Link</a></p>
-                            <p class="mb-4"></p>
-                            <div class="player">
-                                <audio id="player2" preload="none" controls style="max-width: 100%">
-                                    <source src="<?php echo $podcast->name_file("Kesehatan Mental"); ?>" type="audio/mp3">
-                                </audio>
-                            </div>
+                            <h5 class="font-weight-light"><b><?php echo $podcast->namaPodcast("Kesehatan Mental"); ?></b></h3>
+                                <div class="text-white mb-3"><span class="text-black-opacity-05"><small>By Tangan Belang<span class="sep">/</span> 18 February 2020 <span class="sep">/</span> 28:28</small></span></div>
+                                <p class="mb-4">Apakah kebahagiaan bisa mengatasi masalah? Bagaimana cara kami menjaga kesehatan mental di era digital saat ini? Sumber: <a target="_blank" href="https://www.youtube.com/watch?v=OrY0CfvY6TI&t=3s">Link</a></p>
+                                <p class="mb-4"></p>
+                                <div class="player">
+                                    <audio id="player2" preload="none" controls style="max-width: 100%">
+                                        <source src="<?php echo $podcast->namaFile("Kesehatan Mental"); ?>" type="audio/mp3">
+                                    </audio>
+                                </div>
                         </div>
                     </div>
                 </div>
