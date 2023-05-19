@@ -1,5 +1,6 @@
 <?php
 include_once '../template/header.php';
+include_once 'sql_query.php';
 
 if (!isset($_SESSION['status'])) {
     echo "
@@ -12,11 +13,21 @@ if (!isset($_SESSION['status'])) {
 
 $usernamesesi = $_SESSION['username'];
 
-$data = mysqli_query($koneksi2, "SELECT * FROM users INNER JOIN customers 
-                    ON users.user_id = customers.user_id 
-                    where users.username = '$usernamesesi'");
-$data = mysqli_fetch_assoc($data);
 
+// Menggunakan kelas Database
+$database = new Database("task_gojek");
+
+$table = "users";
+
+
+$data = $database->innerJoin($table, "customers", "users.user_id = customers.user_id");
+if (!empty($data)) {
+    $data = $data[0]; // Mengambil baris pertama dari hasil query
+    // Lakukan operasi dengan data yang telah diperoleh
+    // ...
+} else {
+    echo "Data tidak ditemukan";
+}
 
 //OFFICE
 
