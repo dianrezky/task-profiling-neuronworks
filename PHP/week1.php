@@ -1,7 +1,15 @@
-<?php include '../template/header.php';
+<?php 
+include '../template/header.php';
 
-if ($_SESSION['status'] != 'login') {
-    header('location:../index.php');
+// session_start();
+
+if (!isset($_SESSION['status'])) {
+    echo "
+    <script>
+    alert('Anda Belum Login');
+    document.location.href='../index.php';
+    </script>
+    ";
 }
 
 $usernamesesi = $_SESSION['username'];
@@ -159,53 +167,41 @@ function bmi()
     return $hasil;
 }
 
-class ComplexCalculator
-{
-    private $realPart;
-    private $imaginaryPart;
+class podcast{
+    var $title;
+    var $path;
+    var $source;
+    var $describe;
+    var $type;
 
-    public function __construct($realPart, $imaginaryPart)
-    {
-        $this->realPart = $realPart;
-        $this->imaginaryPart = $imaginaryPart;
+    function name_file($type){
+        if($type=="Kesehatan Mental"){
+            $path = "../assets/audio/Senggang Bersama Podcast 13 Menjaga Kesehatan Mental.mp3";
+        }
+        else if($type=="Diabetes"){
+            $path = "../assets/audio/Senggang Bersama Podcast 2 Diabetes.mp3";
+        }
+
+        return $path;
+
     }
 
-    public function add($number)
-    {
-        $resultRealPart = $this->realPart + $number->realPart;
-        $resultImaginaryPart = $this->imaginaryPart + $number->imaginaryPart;
-        return new ComplexCalculator($resultRealPart, $resultImaginaryPart);
+    function nama_podcast($type){
+        if($type=="Kesehatan Mental"){
+            $title = "Senggang Bersama Podcast 13: Menjaga Kesehatan Mental";
+        }
+        else if($type=="Diabetes"){
+            $title = "PODCAST SAPA SEHAT - MANIS BOLEH, DIABETES JANGAN! (HARI DIABETES SEDUNIA)";
+        }
+        return $title;
+
     }
 
-    public function subtract($number)
-    {
-        $resultRealPart = $this->realPart - $number->realPart;
-        $resultImaginaryPart = $this->imaginaryPart - $number->imaginaryPart;
-        return new ComplexCalculator($resultRealPart, $resultImaginaryPart);
-    }
+    
 
-    public function multiply($number)
-    {
-        $resultRealPart = ($this->realPart * $number->realPart) - ($this->imaginaryPart * $number->imaginaryPart);
-        $resultImaginaryPart = ($this->realPart * $number->imaginaryPart) + ($this->imaginaryPart * $number->realPart);
-        return new ComplexCalculator($resultRealPart, $resultImaginaryPart);
-    }
-
-    public function divide($number)
-    {
-        $denominator = pow($number->realPart, 2) + pow($number->imaginaryPart, 2);
-        $resultRealPart = (($this->realPart * $number->realPart) + ($this->imaginaryPart * $number->imaginaryPart)) / $denominator;
-        $resultImaginaryPart = (($this->imaginaryPart * $number->realPart) - ($this->realPart * $number->imaginaryPart)) / $denominator;
-        return new ComplexCalculator($resultRealPart, $resultImaginaryPart);
-    }
-
-    public function getFormattedResult()
-    {
-        $sign = ($this->imaginaryPart < 0) ? '-' : '+';
-        return "{$this->realPart} {$sign} {$this->imaginaryPart}i";
-    }
 }
 
+$podcast = new podcast();
 
 
 ?>
@@ -358,13 +354,13 @@ class ComplexCalculator
                         </div>
                         <!-- Card Body -->
                         <div class="card-body">
-                            <h5 class="font-weight-light"><b>Senggang Bersama Podcast 13: Menjaga Kesehatan Mental</b></h3>
+                            <h5 class="font-weight-light"><b><?php echo $podcast->nama_podcast("Kesehatan Mental"); ?></b></h3>
                             <div class="text-white mb-3"><span class="text-black-opacity-05"><small>By Tangan Belang<span class="sep">/</span> 18 February 2020 <span class="sep">/</span> 28:28</small></span></div>
                             <p class="mb-4">Apakah kebahagiaan bisa mengatasi masalah? Bagaimana cara kami menjaga kesehatan mental di era digital saat ini? Sumber: <a target="_blank" href="https://www.youtube.com/watch?v=OrY0CfvY6TI&t=3s">Link</a></p>
                             <p class="mb-4"></p>
                             <div class="player">
                                 <audio id="player2" preload="none" controls style="max-width: 100%">
-                                    <source src="../assets/audio/Senggang Bersama Podcast 13 Menjaga Kesehatan Mental.mp3" type="audio/mp3">
+                                    <source src="<?php echo $podcast->name_file("Kesehatan Mental"); ?>" type="audio/mp3">
                                 </audio>
                             </div>
                         </div>

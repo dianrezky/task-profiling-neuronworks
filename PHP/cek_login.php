@@ -15,7 +15,7 @@ if((ctype_alpha($username))&&($username!=NULL)&&($password!=NULL)){
 
     $password = MD5($password);
 
-	$data = mysqli_query($koneksi, "select * from users where username='$username' and password='$password'");
+	$data = mysqli_query($koneksi2, "select * from users where username='$username' and password='$password'");
 	
 	// menghitung jumlah data yang ditemukan
 	$cek = mysqli_num_rows($data);

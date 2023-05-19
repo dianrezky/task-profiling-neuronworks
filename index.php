@@ -1,4 +1,15 @@
-<?php include 'koneksi.php'; ?>
+<?php
+
+session_start();
+if (isset($_GET['pesan'])) {
+    if ($_GET['pesan'] == "logout") {
+        echo "<script>alert('Logout Berhasil, Anda telah keluar')</script>";
+    }
+    else if ($_GET['pesan'] == "notlogin") {
+        echo "<script>alert('Anda Harus Login Untuk Akses Menu Ini')</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +94,7 @@
                         </div>
                     </li>
                     <?php
-                    if ($_SESSION['status'] == 'login') {
+                    if (isset($_SESSION['status']) == 'login') {
                         echo "<li class='nav-item'>
                         <a class='nav-link' href='PHP/week1.php'>Profile</a>
                         </li>";
@@ -93,10 +104,10 @@
 
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">
-                    <?php if ($_SESSION['status'] == NULL) {
+                    <?php if (isset($_SESSION['status']) == 'login') {
+                        echo "<a class='btn login-box my-2 my-sm-0' href='PHP/logout.php' id='task2' onclick=''>LOGOUT</a>";
+                    } else {
                         echo "<a class='btn login-box my-2 my-sm-0' href='HTML CSS/login.php' id='task2' onclick=''>LOGIN</a>";
-                    } else if ($_SESSION['status'] == 'login') {
-                        echo "<a class='btn login-box my-2 my-sm-0' href='HTML CSS/login.php' id='task2' onclick=''>LOGOUT</a>";
                     }
                     ?>
 

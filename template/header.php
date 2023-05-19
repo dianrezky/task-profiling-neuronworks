@@ -1,4 +1,7 @@
-<?php include '../koneksi.php'; ?>
+<?php
+require_once '../koneksi.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +57,7 @@
 
     <header>
         <nav class="navbar navbar-expand-md fixed-top ">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../">
                 <img class="logo-img-header" src="../assets/image/nw-horizontal.png" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,15 +66,15 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav navbar-item mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="../">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             HTML & CSS
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="<?php echo __DIR__ ?>/../HTML CSS/login.php">Week 1</a>
-                            <a class="dropdown-item" href="HTML CSS/dashboard.php">Week 2</a>
+                            <a class="dropdown-item" href="../HTML CSS/login.php">Week 1</a>
+                            <a class="dropdown-item" href="../HTML CSS/dashboard.php">Week 2</a>
                         </div>
 
                     </li>
@@ -80,12 +83,12 @@
                             SQL
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="SQL/week1.php">Week 1</a>
-                            <a class="dropdown-item disabled" href="#">Week 2</a>
+                            <a class="dropdown-item" href="../SQL/week1.php">Week 1</a>
+                            <a class="dropdown-item" href="#">Week 2</a>
                         </div>
                     </li>
                     <?php
-                    if ($_SESSION['status'] == 'login') {
+                    if (isset($_SESSION['status']) == 'login') {
                         echo "<li class='nav-item'>
                         <a class='nav-link' href='../PHP/week1.php'>Profile</a>
                         </li>";
@@ -95,10 +98,10 @@
 
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">
-                    <?php if ($_SESSION['status'] == NULL) {
+                    <?php if (isset($_SESSION['status']) == 'login') {
+                        echo "<a class='btn login-box my-2 my-sm-0' href='../PHP/logout.php' onclick=''>LOGOUT</a>";
+                    } else {
                         echo "<a class='btn login-box my-2 my-sm-0' href='../HTML CSS/login.php' id='task2' onclick=''>LOGIN</a>";
-                    } else if ($_SESSION['status'] == 'login') {
-                        echo "<a class='btn login-box my-2 my-sm-0' href='../HTML CSS/login.php' id='task2' onclick=''>LOGOUT</a>";
                     }
                     ?>
 
