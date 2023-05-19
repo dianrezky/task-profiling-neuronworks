@@ -222,43 +222,24 @@ Z, \\\5\\\-3\\2\\\800, C
 EOD;
 
 $hasil_task = [];
-// Memisahkan baris menjadi array
 $lines = explode("\n", $data_task);
 
-// Inisialisasi variabel penomoran
+
 $number = 1;
-
-// Loop melalui setiap baris
 foreach ($lines as $line) {
-    // Menghapus spasi di awal dan akhir baris
     $line = trim($line);
-
-    // Mempisahkan bagian-bagian baris menggunakan koma
     $parts = explode(",", $line);
-
-    // Mendapatkan nilai yang diinginkan
     $letter = trim($parts[0]);
     $numberPart = trim($parts[1]);
     $identifier = trim($parts[2]);
 
-    // Memecah nilai $numberPart menggunakan backslash sebagai pemisah
     $numberParts = preg_split("/\\\\+/", $numberPart, -1, PREG_SPLIT_NO_EMPTY);
 
-    // Loop melalui setiap bagian angka
     foreach ($numberParts as $part) {
-        // Menghapus karakter backslash ganda
         $part = str_replace("\\\\", "\\", $part);
-
-        // Menghapus spasi di awal dan akhir bagian angka
         $part = trim($part);
-
-        // Mencetak output yang diinginkan
-        echo "$letter, $part, $identifier, $number\n";
         $res = "$letter, $part, $identifier, $number\n";
-        // print_r($res);
-
         $hasil_task[$number]=$res;
-        // Meningkatkan nilai $number
         $number++;
     }
 }
