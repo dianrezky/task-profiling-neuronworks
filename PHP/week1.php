@@ -77,13 +77,15 @@ $reportsTo_employees = mysqli_query($koneksi, "SELECT reportsTo FROM employees")
 //CUSTOMER
 
 //query total CUSTOMER
-$total_customers = mysqli_query($koneksi, "SELECT COUNT(*) FROM customers");
-$total_customers = mysqli_fetch_array($total_customers);
 
-if ($total_customers == null) {
+$table = "customers";
+$columns = "COUNT(*) as total_customers";
+
+
+$total_customers = $database->selectCount($table);
+
+if (empty($total_customers)) {
     $total_customers = 'No Customers Available';
-} else {
-    $total_customers = $total_customers[0];
 }
 
 //query customers which have highest limit
