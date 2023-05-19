@@ -28,7 +28,7 @@ if (!empty($data)) {
 }
 
 //OFFICE
-$database= new Database("sql_task");
+$database = new Database("sql_task");
 $table = "employees";
 $columns = "COUNT(*) AS total_employees";
 //query total pegawai
@@ -212,6 +212,58 @@ class Podcast
 $podcast = new Podcast();
 $hasil = bmi();
 
+
+
+
+$data_task = <<<'EOD'
+X, -9\\\10\100\-5\\\0\\\\, A
+Y, \\13\\1\, B
+Z, \\\5\\\-3\\2\\\800, C
+EOD;
+
+$hasil_task = [];
+// Memisahkan baris menjadi array
+$lines = explode("\n", $data_task);
+
+// Inisialisasi variabel penomoran
+$number = 1;
+
+// Loop melalui setiap baris
+foreach ($lines as $line) {
+    // Menghapus spasi di awal dan akhir baris
+    $line = trim($line);
+
+    // Mempisahkan bagian-bagian baris menggunakan koma
+    $parts = explode(",", $line);
+
+    // Mendapatkan nilai yang diinginkan
+    $letter = trim($parts[0]);
+    $numberPart = trim($parts[1]);
+    $identifier = trim($parts[2]);
+
+    // Memecah nilai $numberPart menggunakan backslash sebagai pemisah
+    $numberParts = preg_split("/\\\\+/", $numberPart, -1, PREG_SPLIT_NO_EMPTY);
+
+    // Loop melalui setiap bagian angka
+    foreach ($numberParts as $part) {
+        // Menghapus karakter backslash ganda
+        $part = str_replace("\\\\", "\\", $part);
+
+        // Menghapus spasi di awal dan akhir bagian angka
+        $part = trim($part);
+
+        // Mencetak output yang diinginkan
+        echo "$letter, $part, $identifier, $number\n";
+        $res = "$letter, $part, $identifier, $number\n";
+        // print_r($res);
+
+        $hasil_task[$number]=$res;
+        // Meningkatkan nilai $number
+        $number++;
+    }
+}
+
+
 ?>
 <!-- Content Row -->
 <main>
@@ -345,7 +397,7 @@ $hasil = bmi();
                                 // Tampilkan hasil di bawah formulir jika sudah ada
                                 if ($hasil !== "") {
                                     echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
-                                    ". htmlspecialchars($hasil) ."
+                                    " . htmlspecialchars($hasil) . "
                                     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                       <span aria-hidden='true'>&times;</span>
                                     </button>
@@ -374,12 +426,66 @@ $hasil = bmi();
                     </div>
                 </div>
             </div>
-            <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <div class="row">
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Task Pada Neuronworks</h1>
+                </div>
+                <hr>
             </div>
-            <hr>
+            <div class="row">
+
+                <div class="col-xl-4 col-lg-5">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Soal</h6>
+
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <section>
+                                <div class="container py-5">
+                                    <div class="row">
+                                        <p>
+                                            2. Terdapat code php seperti berikut;<br>
+
+                                            $data = <<<'EOD' X, -9\\\10\100\-5\\\0\\\\, A Y, \\13\\1\, B Z, \\\5\\\-3\\2\\\800, C EOD; <br>
+                                                3. Buat kode PHP yang mengubah data di atas jadi output seperti:<br>
+                                                X, -9, A, 1 X, -5, A, 2 Z, -3, C, 1 X, 0, A, 3 Y, 1, B, 1 Z, 2, C, 2 Z, 5, C, 3 X, 10, A, 4 Y, 13, B, 2 X, 100, A, 5 Z, 800, C, 4 </p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Result</h6>
+
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <section>
+                                <div class="container py-5">
+                                    <div class="row">
+                                        <?php
+                                        $i = 1;
+                                        foreach ($hasil_task as $output) {
+                                            echo $output;
+                                            echo ("<br>");
+                                            $i += 1;
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Content OFFICE Information Row -->
             <div class="card">
                 <h5 class="card-header">
