@@ -184,7 +184,7 @@ class Podcast
     public $describe;
     public $type;
 
-    function namaFile($type)
+    public function namaFile($type)
     {
         if ($type == "Kesehatan Mental") {
             $path = "../assets/audio/Senggang Bersama Podcast 13 Menjaga Kesehatan Mental.mp3";
@@ -195,7 +195,7 @@ class Podcast
         return $path;
     }
 
-    function namaPodcast($type)
+    public function namaPodcast($type)
     {
         if ($type == "Kesehatan Mental") {
             $title = "Senggang Bersama Podcast 13: Menjaga Kesehatan Mental";
