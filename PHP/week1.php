@@ -34,28 +34,18 @@ $columns = "COUNT(*) AS total_employees";
 //query total pegawai
 $total_employees = $database->selectCount($table);
 
-if (!empty($total_employees)) {
-    $total_employees;
-} else {
+if (empty($total_employees)) {
     $total_employees = 'No Employees Available';
 }
 
 //query search president
-
-$president_name = mysqli_query($koneksi, "SELECT * FROM employees WHERE jobTitle='President'");
-$president_name = mysqli_fetch_array($president_name);
+$president_name = $database->selectOne($table, ["jobTitle" => "President"]);
 
 //query amount of payment
-
-$total_payment = mysqli_query($koneksi, "SELECT SUM(amount) as total_income FROM payments");
-$total_payment = mysqli_fetch_assoc($total_payment);
+$total_payment = $database->selectSum("payments", "amount");
 
 //query total target product vendor
-
-$total_product_vendor = mysqli_query($koneksi, "SELECT 
-                                    COUNT(DISTINCT productVendor) 
-                                    as totalProductVendor FROM products");
-$total_product_vendor = mysqli_fetch_assoc($total_product_vendor);
+$total_product_vendor = $database->selectCountDistinct("products", "productVendor", "totalProductVendor");
 
 //query get all employees
 
@@ -82,6 +72,7 @@ $get_all_employees = mysqli_query(
 //query get reportsTo employees
 
 $reportsTo_employees = mysqli_query($koneksi, "SELECT reportsTo FROM employees");
+
 
 //CUSTOMER
 
@@ -437,11 +428,11 @@ $hasil = bmi();
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Target of Product Vendor</div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_product_vendor['totalProductVendor'] . "/100"  ?></div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_product_vendor . "/100"  ?></div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $total_product_vendor['totalProductVendor'] ?>%" aria-valuenow="<?php echo $total_product_vendor['totalProductVendor'] ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $total_product_vendor ?>%" aria-valuenow="<?php echo $total_product_vendor['totalProductVendor'] ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -459,7 +450,7 @@ $hasil = bmi();
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">The Office Income</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo "Rp. " . number_format($total_payment['total_income'], 2, ".", ".") ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo "Rp. " . number_format($total_payment, 2, ".", ".") ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
