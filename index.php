@@ -1,3 +1,4 @@
+<?php include 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +51,7 @@
     <!-- AREA HEADER START -->
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <nav class="navbar navbar-expand-md fixed-top ">
             <a class="navbar-brand" href="index.php">
                 <img class="logo-img-header" src="assets/image/nw-horizontal.png" alt="logo">
             </a>
@@ -58,7 +59,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav navbar-item mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
@@ -81,15 +82,24 @@
                             <a class="dropdown-item disabled" href="#">Week 2</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
+                    <?php
+                    if ($_SESSION['status'] == 'login') {
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='PHP/week1.php'>Profile</a>
+                        </li>";
+                    }
+
+                    ?>
+
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">
-                    <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="HTML CSS/login.php" id="task2" onclick="">
-                        LOGIN
-                    </a>
+                    <?php if ($_SESSION['status'] == NULL) {
+                        echo "<a class='btn login-box my-2 my-sm-0' href='HTML CSS/login.php' id='task2' onclick=''>LOGIN</a>";
+                    } else if ($_SESSION['status'] == 'login') {
+                        echo "<a class='btn login-box my-2 my-sm-0' href='HTML CSS/login.php' id='task2' onclick=''>LOGOUT</a>";
+                    }
+                    ?>
+
                 </div>
             </div>
         </nav>
@@ -115,7 +125,7 @@
                         <div class="carousel-caption text-left">
                             <h1>HTML CSS TASK : WEEK 1</h1>
                             <p>Membuat view untuk login. Tidak boleh menggunakan Bootstrap. Hanya
-                                    diizinkan untuk menggunakan font dan harus membuat CSS sendiri</p>
+                                diizinkan untuk menggunakan font dan harus membuat CSS sendiri</p>
                             <p><a class="btn btn-lg btn-primary" href="HTML CSS/login.php" role="button">View More</a></p>
                         </div>
                     </div>
@@ -126,8 +136,8 @@
                         <div class="carousel-caption">
                             <h1>HTML CSS TASK : WEEK 1</h1>
                             <p>Membuat table sesuai dengan tabel yang sudah diberikan. Boleh
-                                    menggunakan Bootstrap namun diharapkan juga masih menggunakan template css
-                                    sebelumnya. Dashboard boleh bebas</p>
+                                menggunakan Bootstrap namun diharapkan juga masih menggunakan template css
+                                sebelumnya. Dashboard boleh bebas</p>
                             <p><a class="btn btn-lg btn-primary" href="HTML CSS/dashboard.php" role="button">View More</a></p>
                         </div>
                     </div>
@@ -273,13 +283,12 @@
                             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                             <img class="card-img-top" src="assets/image/upcoming.jpg" title="description">
                             <div class="card-body">
-                                <h5 class="card-title">Task 1: Up Coming</h5>
-                                <p class="card-text">Membuat view untuk login. Tidak boleh menggunakan Bootstrap. Hanya
-                                    diizinkan untuk menggunakan font dan harus membuat CSS sendiri</p>
+                                <h5 class="card-title">Task 1: Membuat Modul 1 dan 2</h5>
+                                <p class="card-text">Mengimplementasikan modul 1 dan 2 dan dicoba pada sonar</p>
                             </div>
                             <div class="card-footer">
                                 <small class="text-muted">28 April 2023</small>
-                                <a class="btn btn-primary button-card-task disabled" href="#" role="button">View
+                                <a class="btn btn-primary button-card-task" href="PHP/week1.php" role="button">View
                                     More</a>
                             </div>
                         </div>

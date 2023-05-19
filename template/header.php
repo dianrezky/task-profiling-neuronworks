@@ -1,4 +1,5 @@
-<?php include_once('../koneksi.php');  ?>
+<?php include '../koneksi.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,15 +27,16 @@
     <!-- font -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- datatable
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src=https://cdn.datatables.net/1.9.4//assets/js/jquery.dataTables.min.js></script>
+    <script src=https://cdn.datatables.net/1.9.4//../assets/js/jquery.dataTables.min.js></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.9.4/css/jquery.dataTables.css"> -->
     <!-- <link href="../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
     <!-- GRAPH -->
-
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css ">
     <script type="text/javascript" src="../assets/js/HTMLtable2chart/graficarBarras.js"></script>
     <script type="text/javascript" src="../assets/js/HTMLtable2chart/tabla2array.js"></script>
     <script type="text/javascript" src="../assets/js/HTMLtable2chart/graficarXY.js"></script>
@@ -48,29 +50,28 @@
 
 <body>
 
-
     <!-- AREA HEADER START -->
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-dark">
-            <a class="navbar-brand" href="../index.php">
+        <nav class="navbar navbar-expand-md fixed-top ">
+            <a class="navbar-brand" href="index.php">
                 <img class="logo-img-header" src="../assets/image/nw-horizontal.png" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav navbar-item mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             HTML & CSS
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../HTML CSS/login.php">Week 1</a>
-                            <a class="dropdown-item" href="../HTML CSS/dashboard.php">Week 2</a>
+                            <a class="dropdown-item" href="<?php echo __DIR__ ?>/../HTML CSS/login.php">Week 1</a>
+                            <a class="dropdown-item" href="HTML CSS/dashboard.php">Week 2</a>
                         </div>
 
                     </li>
@@ -79,20 +80,31 @@
                             SQL
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="../SQL/week1.php">Week 1</a>
+                            <a class="dropdown-item" href="SQL/week1.php">Week 1</a>
                             <a class="dropdown-item disabled" href="#">Week 2</a>
                         </div>
                     </li>
+                    <?php
+                    if ($_SESSION['status'] == 'login') {
+                        echo "<li class='nav-item'>
+                        <a class='nav-link' href='../PHP/week1.php'>Profile</a>
+                        </li>";
+                    }
+
+                    ?>
+
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">
-                    <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="../HTML CSS/login.php" id="task2" onclick="">
-                        LOGIN
-                    </a>
+                    <?php if ($_SESSION['status'] == NULL) {
+                        echo "<a class='btn login-box my-2 my-sm-0' href='../HTML CSS/login.php' id='task2' onclick=''>LOGIN</a>";
+                    } else if ($_SESSION['status'] == 'login') {
+                        echo "<a class='btn login-box my-2 my-sm-0' href='../HTML CSS/login.php' id='task2' onclick=''>LOGOUT</a>";
+                    }
+                    ?>
+
                 </div>
             </div>
         </nav>
     </header>
-
 
     <!-- AREA HEADER END -->
