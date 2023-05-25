@@ -31,11 +31,7 @@ require_once '../koneksi.php';
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- datatable
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src=https://cdn.datatables.net/1.9.4//../assets/js/jquery.dataTables.min.js></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.9.4/css/jquery.dataTables.css"> -->
-    <!-- <link href="../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
     <!-- GRAPH -->
@@ -87,21 +83,22 @@ require_once '../koneksi.php';
                             <a class="dropdown-item" href="#">Week 2</a>
                         </div>
                     </li>
-                    <?php
-                    if (isset($_SESSION['status']) == 'login') {
-                        echo "<li class='nav-item'>
-                        <a class='nav-link' href='../PHP/week1.php'>Profile</a>
-                        </li>";
-                    }
-
-                    ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            PHP
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class='dropdown-item' href='../PHP/week1.php'>Week 1</a>
+                            <a class='dropdown-item' href='../PHP/week2.php'>Week 2</a>";
+                        </div>
+                    </li>
 
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">
                     <?php if (isset($_SESSION['status']) == 'login') {
-                        echo "<a class='btn login-box my-2 my-sm-0' href='../PHP/logout.php' onclick=''>LOGOUT</a>";
+                        echo "<a class='btn login-box my-2 my-sm-0' href='../PHP/logout.php'>LOGOUT</a>";
                     } else {
-                        echo "<a class='btn login-box my-2 my-sm-0' href='../HTML CSS/login.php' id='task2' onclick=''>LOGIN</a>";
+                        echo "<a class='btn login-box my-2 my-sm-0' href='../HTML CSS/login.php' id='task2'>LOGIN</a>";
                     }
                     ?>
 

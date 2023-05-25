@@ -67,8 +67,6 @@ $get_all_employees = mysqli_query(
 );
 
 
-
-
 //query get reportsTo employees
 
 $reportsTo_employees = mysqli_query($koneksi, "SELECT reportsTo FROM employees");

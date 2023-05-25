@@ -4,8 +4,7 @@ session_start();
 if (isset($_GET['pesan'])) {
     if ($_GET['pesan'] == "logout") {
         echo "<script>alert('Logout Berhasil, Anda telah keluar')</script>";
-    }
-    else if ($_GET['pesan'] == "notlogin") {
+    } else if ($_GET['pesan'] == "notlogin") {
         echo "<script>alert('Anda Harus Login Untuk Akses Menu Ini')</script>";
     }
 }
@@ -93,15 +92,21 @@ if (isset($_GET['pesan'])) {
                             <a class="dropdown-item disabled" href="#">Week 2</a>
                         </div>
                     </li>
-                    <?php
-                    if (isset($_SESSION['status']) == 'login') {
-                        echo "<li class='nav-item'>
-                        <a class='nav-link' href='PHP/week1.php'>Profile</a>
-                        </li>";
-                    }
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            PHP
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <?php
+                            if (isset($_SESSION['status']) == 'login') {
+                                echo "
+                                <a class='dropdown-item' href='PHP/week1.php'>Week 1</a>
+                                <a class='dropdown-item' href='PHP/week2.php'>Week 2</a>";
+                            }
 
-                    ?>
-
+                            ?>
+                        </div>
+                    </li>
                 </ul>
                 <div class="form-inline mt-2 mt-md-0">
                     <?php if (isset($_SESSION['status']) == 'login') {
