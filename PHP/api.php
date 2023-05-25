@@ -735,13 +735,18 @@ class Healthy
 
                 //SEDANG
 
-                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
-                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
+                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) 
+                             - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
+                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) 
+                            - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
 
                 //BERAT
 
-                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
-                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) 
+                        - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
+                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) 
+                        - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+
             } elseif ($kategori == "satu") {
 
                 $hasilkategori = "1 - 2 Tahun";
@@ -751,15 +756,18 @@ class Healthy
 
                 $detakmax = 220 - $usia;
 
-                //SEDANG
-
-                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
-                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
+               $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) 
+                             - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
+                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) 
+                            - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
 
                 //BERAT
 
-                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
-                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) 
+                        - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
+                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) 
+                        - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+
             } elseif ($kategori == "dua") {
 
                 $hasilkategori =  "3 - 4 Tahun";
@@ -769,15 +777,18 @@ class Healthy
 
                 $detakmax = 220 - $usia;
 
-                //SEDANG
-
-                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
-                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
+               $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) 
+                             - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
+                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) 
+                            - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
 
                 //BERAT
 
-                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
-                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) 
+                        - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
+                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) 
+                        - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+
             } elseif ($kategori == "tiga") {
 
                 $hasilkategori = "5 - 6 Tahun";
@@ -787,15 +798,18 @@ class Healthy
 
                 $detakmax = 220 - $usia;
 
-                //SEDANG
-
-                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
-                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
+                 $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) 
+                             - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
+                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) 
+                            - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
 
                 //BERAT
 
-                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
-                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) 
+                        - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
+                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) 
+                        - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+
             } elseif ($kategori == "empat") {
 
                 $hasilkategori = "7 - 9 Tahun";
@@ -805,15 +819,18 @@ class Healthy
 
                 $detakmax = 220 - $usia;
 
-                //SEDANG
-
-                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
-                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
+                 $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) 
+                             - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
+                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) 
+                            - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
 
                 //BERAT
 
-                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
-                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) 
+                        - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
+                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) 
+                        - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+
             } elseif ($kategori == "lima") {
 
                 $hasilkategori = "10 Tahun Keatas";
@@ -824,15 +841,18 @@ class Healthy
                 $detakmax = 220 - $usia;
 
 
-                //SEDANG
-
-                $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
-                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
+                 $sedangMin = ((($detakmax - $detaknormalbawah) * 0.50) + $detaknormalbawah) 
+                             - ((($detakmax - $detaknormalbawah) * 0.69) + $detaknormalbawah);
+                $sedangMax = ((($detakmax - $detaknormalatas) * 0.50) + $detaknormalatas) 
+                            - ((($detakmax - $detaknormalatas) * 0.69) + $detaknormalatas);
 
                 //BERAT
 
-                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
-                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+                $atasMin = ((($detakmax - $detaknormalbawah) * 0.70) + $detaknormalbawah) 
+                        - ((($detakmax - $detaknormalbawah) * 0.85) + $detaknormalbawah);
+                $atasMax = ((($detakmax - $detaknormalatas) * 0.70) + $detaknormalatas) 
+                        - ((($detakmax - $detaknormalatas) * 0.85) + $detaknormalatas);
+
             }
             $data = array(
                 'max_sedang' => $sedangMax,
@@ -1125,7 +1145,7 @@ class Implementationmachinelearning
 
     //INFERENSI
 
-    function inferensi($suhu, $air, $beras, $waktu)
+    public function inferensi($suhu, $air, $beras, $waktu)
     {
 
         $x = 0;
@@ -1290,7 +1310,7 @@ class Implementationmachinelearning
 
     // SUHU
 
-    function suhuRendah($suhu)
+    public function suhuRendah($suhu)
     {
 
         $nilai_suhurendah = 0;
@@ -1309,7 +1329,7 @@ class Implementationmachinelearning
         return $nilai_suhurendah;
     }
 
-    function suhuNormal($suhu)
+    public function suhuNormal($suhu)
     {
 
         $nilai_suhunormal = 0;
@@ -1333,7 +1353,7 @@ class Implementationmachinelearning
         return $nilai_suhunormal;
     }
 
-    function suhuMaksimal($suhu)
+    public function suhuMaksimal($suhu)
     {
 
         $nilai_suhumaksimal = 0;
@@ -1361,7 +1381,7 @@ class Implementationmachinelearning
     //AIR
 
 
-    function airSedikit($air)
+    public function airSedikit($air)
     {
 
         $nilai_airsedikit = 0;
@@ -1379,7 +1399,7 @@ class Implementationmachinelearning
         return $nilai_airsedikit;
     }
 
-    function airNormal($air)
+    public function airNormal($air)
     {
 
         $nilai_airnormal = 0;
@@ -1403,7 +1423,7 @@ class Implementationmachinelearning
         return $nilai_airnormal;
     }
 
-    function airBanyak($air)
+    public function airBanyak($air)
     {
 
         $nilai_airbanyak = 0;
@@ -1424,7 +1444,7 @@ class Implementationmachinelearning
     //BERAS
 
 
-    function berasSedikit($beras)
+    public function berasSedikit($beras)
     {
 
         $nilai_berassedikit = 0;
@@ -1442,7 +1462,7 @@ class Implementationmachinelearning
         return $nilai_berassedikit;
     }
 
-    function berasSedang($beras)
+    public function berasSedang($beras)
     {
 
         $nilai_berassedang = 0;
@@ -1466,7 +1486,7 @@ class Implementationmachinelearning
         return $nilai_berassedang;
     }
 
-    function berasBanyak($beras)
+    public function berasBanyak($beras)
     {
 
         $nilai_berasbanyak = 0;
@@ -1486,7 +1506,7 @@ class Implementationmachinelearning
 
     //WAKTU
 
-    function waktuCepat($waktu)
+    public function waktuCepat($waktu)
     {
 
         $nilai_waktucepat = 0;
@@ -1504,7 +1524,7 @@ class Implementationmachinelearning
         return $nilai_waktucepat;
     }
 
-    function waktuSedang($waktu)
+    public function waktuSedang($waktu)
     {
 
         $nilai_waktusedang = 0;
@@ -1528,7 +1548,7 @@ class Implementationmachinelearning
         return $nilai_waktusedang;
     }
 
-    function waktuLambat($waktu)
+    public function waktuLambat($waktu)
     {
 
         $nilai_waktulambat = 0;
@@ -1546,7 +1566,7 @@ class Implementationmachinelearning
         return $nilai_waktulambat;
     }
 
-    function nilaiGrafiksuhu($suhu)
+    public function nilaiGrafiksuhu($suhu)
     {
         if (suhuRendah($suhu) != 0) {
             echo "Rendah (" . suhuRendah($suhu) . ")";
@@ -1564,7 +1584,7 @@ class Implementationmachinelearning
     }
 
     //nilai grafik air
-    function nilaiGrafikair($air)
+    public function nilaiGrafikair($air)
     {
         if (airSedikit($air) != 0) {
             echo "Sedikit (" . airSedikit($air) . ")";
@@ -1583,7 +1603,7 @@ class Implementationmachinelearning
 
     //nilai grafik waktu
 
-    function nilaiGrafikwaktu($waktu)
+    public function nilaiGrafikwaktu($waktu)
     {
         if (waktuCepat($waktu) != 0) {
             echo "Cepat (" . waktuCepat($waktu) . ")";
@@ -1602,7 +1622,7 @@ class Implementationmachinelearning
 
     //nilai grafik beras
 
-    function nilaiGrafikberas($beras)
+    public function nilaiGrafikberas($beras)
     {
         if (berasSedikit($beras) != 0) {
             echo "Sedikit (" . berasSedikit($beras) . ")";
