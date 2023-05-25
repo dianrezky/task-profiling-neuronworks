@@ -1176,39 +1176,39 @@ class Implementationmachinelearning
                                 $kondisi[$x] = "Pulen";
                             }
                             //suhu normal; air banyak; beras sedikit; waktu sedang
-                            else if (($i == 1) && ($j == 1) && ($k == 0) && ($l == 2)) {
+                            elseif (($i == 1) && ($j == 1) && ($k == 0) && ($l == 2)) {
                                 $kondisi[$x] = "Pulen";
                             }
                             //suhu normal; air banyak; beras sedang; waktu sedang&lambat
-                            else if (($i == 1) && ($j > 0) && ($k == 1) && ($l == 2)) {
+                            elseif (($i == 1) && ($j > 0) && ($k == 1) && ($l == 2)) {
                                 $kondisi[$x] = "Pulen";
                             }
                             //suhu normal; air banyak; beras banyak; waktu lambat
-                            else if (($i == 1) && ($j == 2) && ($k == 2) && ($l == 2)) {
+                            elseif (($i == 1) && ($j == 2) && ($k == 2) && ($l == 2)) {
                                 $kondisi[$x] = "Pulen";
                             }
 
                             //SUHU TINGGI PULEN
 
                             //suhu tinggi; air normal; beras sedikit; waktu cepat&sedang&lambat
-                            else if (($i == 2) && ($j >= 0) && ($k == 0) && ($l == 1)) {
+                            elseif (($i == 2) && ($j >= 0) && ($k == 0) && ($l == 1)) {
                                 $kondisi[$x] = "Pulen";
                             }
                             //suhu tinggi; air banyak; beras sedang; waktu cepat&sedang&lambat
-                            else if (($i == 2) && ($j >= 0) && ($k == 1) && ($l == 2)) {
+                            elseif (($i == 2) && ($j >= 0) && ($k == 1) && ($l == 2)) {
                                 $kondisi[$x] = "Pulen";
                             }
                             //suhu tinggi; air banyak; beras banyak; waktu sedang&lambat
-                            else if (($i == 2) && ($j > 0) && ($k == 2) && ($l == 2)) {
+                            elseif (($i == 2) && ($j > 0) && ($k == 2) && ($l == 2)) {
                                 $kondisi[$x] = "Pulen";
                             }
 
                             //KASUS BUBUR
 
                             //suhu normal; air banyak; beras sedikit; waktu lambat
-                            else if (($i == 1) && ($j == 2) && ($k == 0)  && ($l == 2)) {
+                            elseif (($i == 1) && ($j == 2) && ($k == 0)  && ($l == 2)) {
                                 $kondisi[$x] = "Bubur";
-                            } else if (($i == 2) && ($j >= 0) && ($k == 0)  && ($l == 2)) {
+                            } elseif (($i == 2) && ($j >= 0) && ($k == 0)  && ($l == 2)) {
                                 $kondisi[$x] = "Bubur";
                             } else {
                                 $kondisi[$x] = "Tidak Matang";
@@ -1235,7 +1235,7 @@ class Implementationmachinelearning
         for ($m = 0; $m < $x; $m++) {
             if ($kondisi[$m] == "Bubur") {
                 $nilai_bubur = max($minimal[$m], $nilai_bubur);
-            } else if ($kondisi[$m] == "Pulen") {
+            } elseif ($kondisi[$m] == "Pulen") {
                 $nilai_pulen = max($minimal[$m], $nilai_pulen);
             } else {
                 $nilai_tidakmatang = max($minimal[$m], $nilai_tidakmatang);
@@ -1262,22 +1262,22 @@ class Implementationmachinelearning
             $nilai_y = ((2 + 4 + 6 + 8 + 10 + 12 + 14 + 16 + 18 + 20) * $nilai_tidakmatang) / (10 * $nilai_tidakmatang);
         }
         //HANYA BUBUR
-        else if (($nilai_tidakmatang == 0) && ($nilai_pulen == 0) && ($nilai_bubur != 0)) {
+        elseif (($nilai_tidakmatang == 0) && ($nilai_pulen == 0) && ($nilai_bubur != 0)) {
             echo '<img src="https://latex.codecogs.com/svg.latex?{\color{White}y*&space;=&space;\frac{0&plus;0&plus;((80&plus;82&plus;84&plus;86&plus;88&plus;90&plus;92&plus;94&plus;96&plus;98)*' . $nilai_bubur . ')}{0&plus;0&plus;(10*' . $nilai_bubur . ')}"/>';
             $nilai_y = ((80 + 82 + 84 + 86 + 88 + 90 + 92 + 94 + 96 + 98) * $nilai_bubur) / (10 * $nilai_bubur);
         }
         //HANYA PULEN
-        else if (($nilai_tidakmatang == 0) && ($nilai_pulen != 0) && ($nilai_bubur == 0)) {
+        elseif (($nilai_tidakmatang == 0) && ($nilai_pulen != 0) && ($nilai_bubur == 0)) {
             echo '<img src="https://latex.codecogs.com/svg.latex?{\color{White}y*&space;=&space;\frac{0&plus;((40&plus;42&plus;44&plus;46&plus;48&plus;50&plus;52&plus;54&plus;58&plus;60)*' . $nilai_pulen . ')&plus;0}{(10*' . $nilai_pulen . ')&plus;0&plus;0}"/>';
             $nilai_y = ((40 + 42 + 44 + 46 + 48 + 50 + 52 + 54 + 58 + 60) * $nilai_pulen) / ((10 * $nilai_pulen));
         }
         // TIDAK MATANG DAN PULEN
-        else if (($nilai_tidakmatang != 0) && ($nilai_pulen != 0) && ($nilai_bubur == 0)) {
+        elseif (($nilai_tidakmatang != 0) && ($nilai_pulen != 0) && ($nilai_bubur == 0)) {
             echo '<img src="https://latex.codecogs.com/svg.latex?{\color{White}y*&space;=&space;\frac{((4&plus;8&plus;12&plus;16&plus;20))*' . $nilai_tidakmatang . ')&plus;((35&plus;40&plus;45&plus;50&plus;55&plus;60)*' . $nilai_pulen . ')&plus;0}{(5*' . $nilai_tidakmatang . ')&plus;(5*' . $nilai_pulen . ')&plus;0}"/>';
             $nilai_y = (((4 + 8 + 12 + 16 + 20) * $nilai_tidakmatang) + ((44 + 48 + 52 + 56 + 60) * $nilai_pulen)) / ((5 * $nilai_tidakmatang) + (5 * $nilai_pulen));
         }
         //PULEN DAN BUBUR
-        else if (($nilai_tidakmatang == 0) && ($nilai_pulen != 0) && ($nilai_bubur != 0)) {
+        elseif (($nilai_tidakmatang == 0) && ($nilai_pulen != 0) && ($nilai_bubur != 0)) {
             echo '<img src="https://latex.codecogs.com/svg.latex?{\color{White}y*&space;=&space;\frac{0&plus;((44&plus;48&plus;52&plus;56&plus;60)*' . $nilai_pulen . ')&plus;((84&plus;88&plus;92&plus;96&plus;100)*' . $nilai_bubur . ')}{0&plus;(5*' . $nilai_pulen . ')&plus;(5*' . $nilai_bubur . ')}"/>';
             $nilai_y = (((44 + 48 + 52 + 56 + 60) * $nilai_pulen) + ((84 + 88 + 92 + 96 + 100) * $nilai_bubur)) / ((5 * $nilai_pulen) + (5 * $nilai_bubur));
         }
