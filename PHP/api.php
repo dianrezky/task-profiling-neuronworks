@@ -886,6 +886,7 @@ class Healthy
             $diare      = $_POST['diare'];
             $rewel      = $_POST['rewel'];
             $kejang     = $_POST['kejang'];
+            
 
             if ($demam == "dy" && $nt == "nty" && $hm == "hmy" && $batuk == "by" && $no == "noy" && $mm == "mmy" && $foto == "fotoy") {
 
