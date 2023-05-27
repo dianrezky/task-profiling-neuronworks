@@ -93,7 +93,8 @@
             <div class="container">
                 <div class="row">
                         <div class="copyright-text">
-                            Copyright &copy; Bluejack 20-1
+                        Copyright <span id="get-year"></span> &copy Dian Rezky Wulandari - PT. Neuronworks
+                Indonesia
                         </div>
                 </div>
             </div>
@@ -112,6 +113,13 @@
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript">
+        var $ = require('jquery');
+        var dt = require('datatables.net')(window, $);
+        var date = new Date().getFullYear();
+
+        document.getElementById("get-year").innerHTML = date;
+    </script>
 </body>
 
 </html>

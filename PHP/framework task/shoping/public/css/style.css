@@ -461,7 +461,7 @@ ol {
 	content: "3";
 	font-family: "ElegantIcons";
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .inner-header .advanced-search .input-group {
@@ -1058,7 +1058,8 @@ ol {
 }
 
 .product-large a {
-	color: #ffffff;
+	color: #000000;
+	font-weight: bolder;
 	font-size: 18px;
 	font-weight: 500;
 	display: inline-block;
@@ -1085,7 +1086,7 @@ ol {
 	list-style: none;
 	display: inline-block;
 	font-size: 20px;
-	color: #b2b2b2;
+	color: #ffffff;
 	margin-right: 22px;
 	position: relative;
 	cursor: pointer;
@@ -1244,7 +1245,7 @@ ol {
 
 .product-item .pi-text .catagory-name {
 	font-size: 10px;
-	color: #b2b2b2;
+	color: #ffffff;
 	font-weight: 700;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -1260,7 +1261,7 @@ ol {
 }
 
 .product-item .pi-text .product-price {
-	color: #6772ba;
+	color: #1127b8;;
 	font-size: 20px;
 	font-weight: 700;
 }
@@ -1268,7 +1269,7 @@ ol {
 .product-item .pi-text .product-price span {
 	font-size: 14px;
 	font-weight: 400;
-	color: #b2b2b2;
+	color: #ffffff;
 	text-decoration: line-through;
 }
 
@@ -1309,7 +1310,7 @@ ol {
 
 .countdown-timer .cd-item p {
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #ffffff;
 	margin-bottom: 0;
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
@@ -1584,7 +1585,7 @@ ol {
 .footer-widget ul li a {
 	line-height: 36px;
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .newslatter-item h5 {
@@ -1594,7 +1595,7 @@ ol {
 }
 
 .newslatter-item p {
-	color: #b2b2b2;
+	color: #ffffff;
 	line-height: 26px;
 }
 
@@ -1603,7 +1604,7 @@ ol {
 }
 
 .newslatter-item .subscribe-form input {
-	color: #b2b2b2;
+	color: #ffffff;
 	background: #303030;
 	width: 100%;
 	height: 46px;
@@ -1619,23 +1620,23 @@ input[type="radio"] {
 }
 
 .newslatter-item .subscribe-form input::-webkit-input-placeholder {
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .newslatter-item .subscribe-form input::-moz-placeholder {
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .newslatter-item .subscribe-form input:-ms-input-placeholder {
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .newslatter-item .subscribe-form input::-ms-input-placeholder {
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .newslatter-item .subscribe-form input::placeholder {
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .newslatter-item .subscribe-form button {
@@ -1711,12 +1712,12 @@ input[type="radio"] {
 	content: "";
 	font-family: "FontAwesome";
 	font-size: 16px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .breadcrumb-text span {
 	display: inline-block;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 /*---------------------
@@ -2149,7 +2150,7 @@ input[type="radio"] {
 .product-details .pd-title span {
 	display: block;
 	font-size: 12px;
-	color: #b2b2b2;
+	color: #ffffff;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-weight: 700;
@@ -2303,7 +2304,7 @@ input[type="radio"] {
 
 .product-details .quantity .pro-qty .qtybtn {
 	font-size: 24px;
-	color: #b2b2b2;
+	color: #ffffff;
 	float: left;
 	line-height: 38px;
 	cursor: pointer;
@@ -2387,7 +2388,7 @@ input[type="radio"] {
 	display: inline-block;
 	font-size: 16px;
 	font-weight: 700;
-	color: #b2b2b2;
+	color: #ffffff;
 	text-transform: uppercase;
 	padding: 18px 61px;
 	position: relative;
@@ -2557,7 +2558,7 @@ input[type="radio"] {
 }
 
 .customer-review-option .comment-option .co-item .avatar-text h5 span {
-	color: #b2b2b2;
+	color: #ffffff;
 	font-size: 12px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -2572,7 +2573,7 @@ input[type="radio"] {
 	top: -5px;
 	content: "-";
 	font-size: 18px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .customer-review-option .comment-option .co-item .avatar-text .at-reply {
@@ -2731,7 +2732,7 @@ input[type="radio"] {
 
 .cart-table table tr td.qua-col .pro-qty .qtybtn {
 	font-size: 24px;
-	color: #b2b2b2;
+	color: #ffffff;
 	float: left;
 	line-height: 38px;
 	cursor: pointer;
@@ -2772,7 +2773,7 @@ input[type="radio"] {
 }
 
 .cart-buttons .continue-shop {
-	color: #b2b2b2;
+	color: #ffffff;
 	border: 2px solid #ebebeb;
 	background: #ffffff;
 	margin-right: 8px;
@@ -2806,7 +2807,7 @@ input[type="radio"] {
 	width: 100%;
 	height: 46px;
 	border: 2px solid #ebebeb;
-	color: #b2b2b2;
+	color: #ffffff;
 	font-size: 14px;
 	padding-left: 20px;
 }
@@ -2958,7 +2959,7 @@ input[type="radio"] {
 	top: 3px;
 	height: 13px;
 	width: 13px;
-	border: 2px solid #B2B2B2;
+	border: 2px solid #ffffff;
 	border-radius: 2px;
 }
 
@@ -3049,7 +3050,7 @@ input[type="radio"] {
 	top: 3px;
 	height: 13px;
 	width: 13px;
-	border: 2px solid #B2B2B2;
+	border: 2px solid #ffffff;
 	border-radius: 2px;
 }
 
@@ -3108,7 +3109,7 @@ input[type="radio"] {
 	border: 2px solid #ECECEC;
 	padding-left: 20px;
 	font-size: 18px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .blog-sidebar .search-form form button {
@@ -3191,7 +3192,7 @@ input[type="radio"] {
 }
 
 .blog-sidebar .recent-post .recent-blog .rb-item .rb-text p span {
-	color: #b2b2b2;
+	color: #ffffff;
 	font-weight: 400;
 	text-transform: capitalize;
 	letter-spacing: 0;
@@ -3244,7 +3245,7 @@ input[type="radio"] {
 }
 
 .blog-item .bi-text p span {
-	color: #b2b2b2;
+	color: #ffffff;
 	font-weight: 400;
 	text-transform: capitalize;
 	letter-spacing: 0;
@@ -3303,7 +3304,7 @@ input[type="radio"] {
 }
 
 .blog-details-inner .blog-detail-title p span {
-	color: #b2b2b2;
+	color: #ffffff;
 	font-size: 14px;
 	font-weight: 400;
 	text-transform: capitalize;
@@ -3441,7 +3442,7 @@ input[type="radio"] {
 	left: -32px;
 	top: 35%;
 	font-size: 18px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .blog-details-inner .blog-post .prev-blog .pb-pic img {
@@ -3456,7 +3457,7 @@ input[type="radio"] {
 
 .blog-details-inner .blog-post .prev-blog .pb-text span {
 	font-size: 14px;
-	color: #b2b2b2;
+	color: #ffffff;
 	letter-spacing: 2px;
 }
 
@@ -3483,7 +3484,7 @@ input[type="radio"] {
 	right: -28px;
 	top: 35%;
 	font-size: 18px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .blog-details-inner .blog-post .next-blog .nb-pic img {
@@ -3499,7 +3500,7 @@ input[type="radio"] {
 
 .blog-details-inner .blog-post .next-blog .nb-text span {
 	font-size: 14px;
-	color: #b2b2b2;
+	color: #ffffff;
 	letter-spacing: 2px;
 }
 
@@ -3644,7 +3645,7 @@ input[type="radio"] {
 
 .contact-widget .cw-item .ci-icon i {
 	font-size: 30px;
-	color: #b2b2b2;
+	color: #ffffff;
 }
 
 .contact-widget .cw-item .ci-text {
@@ -3653,7 +3654,7 @@ input[type="radio"] {
 }
 
 .contact-widget .cw-item .ci-text span {
-	color: #b2b2b2;
+	color: #ffffff;
 	font-size: 16px;
 }
 

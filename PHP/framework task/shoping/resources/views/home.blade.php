@@ -15,7 +15,7 @@
                     <div class="single-banner">
                         <img src="{{ asset('img/banner1.jpg') }}" alt="">
                         <div class="inner-text">
-                            <h4>J</h4>
+                            <h4>Furniture</h4>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="single-banner">
                         <img src="{{ asset('img/banner1.jpg') }}" alt="">
                         <div class="inner-text">
-                            <h4>H</h4>
+                            <h4>Freedom</h4>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <a>Discover More</a>
                     </div>
                 </div>
-                <div class="col-lg-8 offset-lg-1">
+                <div class="col-lg-8 offset-lg-1" style="background-color:#9a9fbc">
                     <div class="filter-control">
                         <ul>
                             <li class="active">Table</li>
@@ -80,7 +80,7 @@
                                                     </form>
                                                 </li>
                                             @endcannot
-                                            <li class="quick-view"><a href="/furniture/{{ $table->id }}">+ Quick View</a></li>
+                                            <li class="quick-view"><a href="/furniture/{{ $table->id }}">+ View</a></li>
                                             @can('admin')
                                             <li class="w-icon">
                                                 <form action="/furniture-delete/{{ $table->id }}" method="POST">
@@ -115,7 +115,7 @@
     <section class="man-banner spad">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8" style="background-color: #b5c1ff;">
                     <div class="filter-control">
                         <ul>
                             <li>Table</li>
@@ -146,7 +146,7 @@
                                                     </form>
                                                 </li>
                                             @endcannot
-                                            <li class="quick-view"><a href="/furniture/{{ $chair->id }}">+ Quick View</a></li>
+                                            <li class="quick-view"><a href="/furniture/{{ $chair->id }}">+ View</a></li>
                                             @can('admin')
                                             <li class="w-icon">
                                                 <form action="/furniture-delete/{{ $chair->id }}" method="POST">
@@ -193,7 +193,7 @@
                         <a>Discover More</a>
                     </div>
                 </div>
-                <div class="col-lg-8 offset-lg-1">
+                <div class="col-lg-8 offset-lg-1" style="background-color:#9a9fbc">
                     <div class="filter-control">
                         <ul>
                             <li>Table</li>
@@ -224,7 +224,7 @@
                                                     </form>
                                                 </li>
                                             @endcannot
-                                            <li class="quick-view"><a href="/furniture/{{ $bed->id }}">+ Quick View</a></li>
+                                            <li class="quick-view"><a href="/furniture/{{ $bed->id }}">+ View</a></li>
                                             @can('admin')
                                             <li class="w-icon">
                                                 <form action="/furniture-delete/{{ $bed->id }}" method="POST">
@@ -259,7 +259,7 @@
     <section class="man-banner spad">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8" style="background-color: #b5c1ff;">
                     <div class="filter-control">
                         <ul>
                             <li>Table</li>
@@ -290,7 +290,7 @@
                                                     </form>
                                                 </li>
                                             @endcannot
-                                            <li class="quick-view"><a href="/furniture/{{ $storage->id }}">+ Quick View</a></li>
+                                            <li class="quick-view"><a href="/furniture/{{ $storage->id }}">+ View</a></li>
                                             @can('admin')
                                             <li class="w-icon">
                                                 <form action="/furniture-delete/{{ $storage->id }}" method="POST">
