@@ -30,12 +30,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Jhonathan',
+            'name' => 'Rezky',
             'email' => 'tester@gmail.com',
-            'password' => bcrypt('Jhonathan@123'),
+            'password' => bcrypt('Rezky@123'),
             'is_admin' => "Member",
             'address' => 'Bekasi, West Java, Java Island, Indonesia, Earth Milky Way Gateway',
-            'gender' => 'Male'
+            'gender' => 'Female'
         ]);
 
         //buat isi sample data furniture
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'price' => 200000,
             'type' => 'Chair',
             'color' => 'White',
-            'image' => 'image-products/Y7dSmqQvrCeedeAgHq6RzBEhwM0JYyJimmpCl8sP.png'
+            'image' => 'image-products/antilop.jpg'
         ]);
 
         Furniture::create([
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'price' => 85000,
             'type' => 'Chair',
             'color' => 'White',
-            'image' => 'image-products/Osqh2lNDuyOWGg13o9zzBGWvIRZEUqUCY45RRtW6.png'
+            'image' => 'image-products/mammut.jpg'
         ]);
 
         Furniture::create([
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
             'price' => 1850000,
             'type' => 'Chair',
             'color' => 'Black',
-            'image' => 'image-products/5GebR0P0M26rzfLsGCtIl42jWBCsEBUayZmHC6US.png'
+            'image' => 'image-products/hemlingby.jpg'
         ]);
 
         Furniture::create([
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             'price' => 125000,
             'type' => 'Chair',
             'color' => 'White',
-            'image' => 'image-products/m3RApAj1GAglLknOslyYTxOe6ChBJ4QJDGyFo9q7.png'
+            'image' => 'image-products/teodores.jpg'
         ]);
 
         Furniture::create([
@@ -77,42 +77,42 @@ class DatabaseSeeder extends Seeder
             'price' => 850000,
             'type' => 'Bed',
             'color' => 'Blue',
-            'image' => 'image-products/viMnOLq9jBsVq0axR22DItKbkUpW9UPN8euAgvOd.png'
+            'image' => 'image-products/jessheim.jpg'
         ]);
         Furniture::create([
             'name' => 'Grimsbu',
             'price' => 1850000,
             'type' => 'Bed',
             'color' => 'White',
-            'image' => 'image-products/nT1tPOlDI1S17vy4gFdxYgfF6A0RlAxZJMV3hXPJ.png'
+            'image' => 'image-products/grimsbu.jpg'
         ]);
         Furniture::create([
             'name' => 'Knarrevik',
             'price' => 185000,
             'type' => 'Table',
             'color' => 'Black',
-            'image' => 'image-products/90unHsfhoPwbkG2eNJPgcoKuyQZKOGMeUhEAUuf6.png'
+            'image' => 'image-products/knarrevik.jpg'
         ]);
         Furniture::create([
             'name' => 'Lack',
             'price' => 145000,
             'type' => 'Table',
             'color' => 'Black',
-            'image' => 'image-products/UmqWJM3hnKomlVuFiRFoGvyS8VzefMbThLKwmuEZ.png'
+            'image' => 'image-products/lack.jpg'
         ]);
         Furniture::create([
             'name' => 'Melltorp',
             'price' => 225000,
             'type' => 'Table',
             'color' => 'White',
-            'image' => 'image-products/1WW90HdDUhEPCj0hufHYVStGcGRSez9YRC7TnC9D.png'
+            'image' => 'image-products/melltorp.jpg'
         ]);
         Furniture::create([
             'name' => 'Vuku',
             'price' => 450000,
             'type' => 'Storage',
             'color' => 'White',
-            'image' => 'image-products/9ccSaNSE6NSXV318tvQuObLqvyN6sTRZWEL4fPMC.png'
+            'image' => 'image-products/vuku.jpg'
         ]);
 
 

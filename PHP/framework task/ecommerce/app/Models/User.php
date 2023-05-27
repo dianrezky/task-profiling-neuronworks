@@ -17,14 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    // protected $fillable = [
-    //     'name',
-    //     'email',
-    //     'password',
-    //     'alamat',
-    //     'gender',
-    //     'is_admin',
-    // ];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'alamat',
+        'gender',
+        'is_admin',
+    ];
 
     protected $guarded = ['id'];
 

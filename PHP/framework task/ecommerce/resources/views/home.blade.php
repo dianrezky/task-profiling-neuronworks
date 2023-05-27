@@ -15,7 +15,7 @@
                     <div class="single-banner">
                         <img src="{{ asset('img/banner1.jpg') }}" alt="">
                         <div class="inner-text">
-                            <h4>J</h4>
+                            <h4>Furniture</h4>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="single-banner">
                         <img src="{{ asset('img/banner1.jpg') }}" alt="">
                         <div class="inner-text">
-                            <h4>H</h4>
+                            <h4>Freedom</h4>
                         </div>
                     </div>
                 </div>

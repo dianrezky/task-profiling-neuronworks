@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function index(){
         return view('dashboard.product.index', [
-            'title' => 'JH Furniture | Product',
+            'title' => 'Furniture Freedom | Product',
             'furniture' => Furniture::all()
 
         ]);
@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function show($id){
         return view('dashboard.product.detail', [
-            'title' => 'JH Furniture | Detail Product',
+            'title' => 'Furniture Freedom | Detail Product',
             'furniture' => Furniture::find($id),
             'furnitures' => Furniture::latest()->limit(4)->get()
         ]);
@@ -25,7 +25,7 @@ class ProductController extends Controller
 
     public function find($type){
         return view('dashboard.product.type', [
-            'title' => 'JH Furniture | Detail Product',
+            'title' => 'Furniture Freedom | Detail Product',
             'active' => 'view',
             'furniture' => Furniture::all($type)
         ]);

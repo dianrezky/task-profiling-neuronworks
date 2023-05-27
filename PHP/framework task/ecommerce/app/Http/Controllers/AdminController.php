@@ -14,7 +14,7 @@ class AdminController extends Controller
     public function index(){
         $this->authorize('admin');
         return view('dashboard.admin.index',[
-            'title' => "JH Furniture",
+            'title' => "Furniture Freedom",
             "product" =>  Furniture::all()
         ]);
     }
@@ -22,7 +22,7 @@ class AdminController extends Controller
     public function create(){
         $this->authorize('admin');
         return view('dashboard.admin.create',[
-            'title' => "JH Furniture",
+            'title' => "Furniture Freedom",
             "product" => Furniture::all()
         ]);
     }
@@ -50,7 +50,7 @@ class AdminController extends Controller
     public function edit($id){
         $this->authorize('admin');
         return view('dashboard.admin.edit', [
-            "title" => "JH Furniture | Edit",
+            "title" => "Furniture Freedom | Edit",
             "furniture" => Furniture::find($id)
 
         ]);

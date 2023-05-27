@@ -30,28 +30,33 @@
     <header class="header-section">
         <div class="nav-item">
             <div class="container">
-                <img src="{{ asset('img/logos.png') }}" alt="">
+                <img src="{{ asset('img/logos web.png') }}" alt="">
                 <nav class="nav-menu mobile-menu center">
                     <ul>
                         <li class="nav-link {{ (Request::is('/')) ? 'active' : '' }}"><a href="/">Home</a></li>
                         <li class="nav-link {{ (Request::is('view')) ? 'active' : '' }}"><a href="/view">View</a></li>
                         @auth
-                            @cannot('admin')
+                            @cannot('Admin')
                                 <li class="nav-link {{ (Request::is('cart')) ? 'active' : '' }}"><a href="/cart">Cart</a></li>
                             @endcannot
-                            @can('admin')
+                            @can('Admin')
                                 <li class="nav-link {{ (Request::is('furniture')) ? 'active' : '' }}"><a href="/furniture">Furniture</a>
                                     <ul class="dropdown">
                                         <li><a href="/furniture-create">Add Furniture</a></li>
                                     </ul>
                                 </li>
                             @endcan
+                            <li class="nav-link {{ (Request::is('furniture')) ? 'active' : '' }}"><a href="/furniture">Furniture</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/furniture-create">Add Furniture</a></li>
+                                    </ul>
+                                </li>
                             <li class="nav-link {{ (Request::is('profile')) ? 'active' : '' }}"><a href="/profile">Profile</a>
                                 <ul class="dropdown">
-                                    @can('user')
+                                    @can('Member')
                                     <li><a href="#">View Transaction History</a></li>
                                     @endcan
-                                    @can('admin')
+                                    @can('Admin')
                                     <li><a href="#">View All Transaction History</a></li>
                                     @endcan
                                     <li><a href="/edit_profile">Update Profile</a></li>
@@ -81,7 +86,8 @@
             <div class="container">
                 <div class="row">
                         <div class="copyright-text">
-                            Copyright &copy; Bluejack 20-1
+                        Copyright <span id="get-year"></span> &copy Dian Rezky Wulandari - PT. Neuronworks
+                Indonesia
                         </div>
                 </div>
             </div>
@@ -100,6 +106,13 @@
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script type="text/javascript">
+        var $ = require('jquery');
+        var dt = require('datatables.net')(window, $);
+        var date = new Date().getFullYear();
+
+        document.getElementById("get-year").innerHTML = date;
+    </script>
 </body>
 
 </html>

@@ -23,7 +23,7 @@ class ChartController extends Controller
 
         $furniture = Furniture::find($id);
         $user = auth()->user()->id;
-        $check = Chart::find
+        // $check = Chart::find
 
         $chart->create([
             'name' => $furniture->name,

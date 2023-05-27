@@ -10,7 +10,7 @@ class RegisterController extends Controller{
     //
     public function index(){
         return view('register.index', [
-            'title' => 'JH Furniture | Register',
+            'title' => 'Furniture Freedom | Register',
             'active' => 'register'
             
         ]);

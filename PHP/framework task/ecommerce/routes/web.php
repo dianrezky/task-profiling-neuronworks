@@ -77,6 +77,6 @@ Route::get('/admin', function () {
 
 // Route::get('/dashboard', function(){
 //     return view('dashboard.index', [
-//         "title" => "JH Furniture | Dashboard"
+//         "title" => "Furniture Freedom | Dashboard"
 //     ]);
 // })->middleware('auth');

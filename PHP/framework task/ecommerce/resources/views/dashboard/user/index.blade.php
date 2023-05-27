@@ -36,7 +36,7 @@
                     <a href="/edit_profile/{{ $user->id }}"><button class="site-btn register-btn">Update Profile</button></a>  
                 </div>
                 <div class="box-profile">
-                    <a href="/logout"><button class="site-btn register-btn">View Transaction History</button></a>
+                    <a href="/logout"><button class="site-btn register-btn">nsaction History</button></a>
                 </div>
             </div>
         </div>
