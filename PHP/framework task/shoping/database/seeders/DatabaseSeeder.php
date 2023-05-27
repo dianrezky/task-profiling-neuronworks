@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'price' => 200000,
             'type' => 'Chair',
             'color' => 'White',
-            'image' => 'image-products/iMPz5rARxqNBVexXsvlCmWUnYg25vtX1P9MwXdZp.jpg'
+            'image' => 'image-products/iMPz5rARxqNBVexXsvlCmWUnYg25vtX1P9MwXdZp.png'
         ]);
 
         Furniture::create([
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'price' => 85000,
             'type' => 'Chair',
             'color' => 'White',
-            'image' => 'image-products/hpCU7NKRtcynF2D3j4voV1DnYLIMeco1PZPk1PGt.jpg'
+            'image' => 'image-products/hpCU7NKRtcynF2D3j4voV1DnYLIMeco1PZPk1PGt.png'
         ]);
 
         Furniture::create([
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
             'price' => 1850000,
             'type' => 'Chair',
             'color' => 'Black',
-            'image' => 'image-products/zY4cXwOp1ZSOtlO3CWx2cIUSbTAzf3R9gO7wQ7tI.jpg'
+            'image' => 'image-products/zY4cXwOp1ZSOtlO3CWx2cIUSbTAzf3R9gO7wQ7tI.png'
         ]);
 
         Furniture::create([
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             'price' => 125000,
             'type' => 'Chair',
             'color' => 'White',
-            'image' => 'image-products/eO3knOPvA3pHON8jgINt8wiBOy17dzxC79R9tiYT.jpg'
+            'image' => 'image-products/eO3knOPvA3pHON8jgINt8wiBOy17dzxC79R9tiYT.png'
         ]);
 
         Furniture::create([
@@ -77,42 +77,42 @@ class DatabaseSeeder extends Seeder
             'price' => 850000,
             'type' => 'Bed',
             'color' => 'Blue',
-            'image' => 'image-products/6w8dMSTXYRFdgd5JV0dsmFyMcBAoxBHEfUG2vpd7.jpg'
+            'image' => 'image-products/6w8dMSTXYRFdgd5JV0dsmFyMcBAoxBHEfUG2vpd7.png'
         ]);
         Furniture::create([
             'name' => 'Grimsbu',
             'price' => 1850000,
             'type' => 'Bed',
             'color' => 'White',
-            'image' => 'image-products/JiZxBKnwKIBOZm5MYUstnNf8SwW4x1bR46FqHAym.jpg'
+            'image' => 'image-products/JiZxBKnwKIBOZm5MYUstnNf8SwW4x1bR46FqHAym.png'
         ]);
         Furniture::create([
             'name' => 'Knarrevik',
             'price' => 185000,
             'type' => 'Table',
             'color' => 'Black',
-            'image' => 'image-products/8d9LtBqpJnDbyMbAIyu5HEWfA8YwrGszABEVQt0w.jpg'
+            'image' => 'image-products/8d9LtBqpJnDbyMbAIyu5HEWfA8YwrGszABEVQt0w.png'
         ]);
         Furniture::create([
             'name' => 'Lack',
             'price' => 145000,
             'type' => 'Table',
             'color' => 'Black',
-            'image' => 'image-products/EEcISPtZzqXIciaiCy7TnpuV2SLXdH8lpr9R4MYG.jpg'
+            'image' => 'image-products/EEcISPtZzqXIciaiCy7TnpuV2SLXdH8lpr9R4MYG.png'
         ]);
         Furniture::create([
             'name' => 'Melltorp',
             'price' => 225000,
             'type' => 'Table',
             'color' => 'White',
-            'image' => 'image-products/8QaFPjX7V5cKi5nqke3tmrt5aw6D6zcm8Ma1qz93.jpg'
+            'image' => 'image-products/8QaFPjX7V5cKi5nqke3tmrt5aw6D6zcm8Ma1qz93.png'
         ]);
         Furniture::create([
             'name' => 'Vuku',
             'price' => 450000,
             'type' => 'Storage',
             'color' => 'White',
-            'image' => 'image-products/i60HyT36Ue29utZi75CUBES2WMGa0iYugMbwQlGn.jpg'
+            'image' => 'image-products/i60HyT36Ue29utZi75CUBES2WMGa0iYugMbwQlGn.png'
         ]);
 
 
