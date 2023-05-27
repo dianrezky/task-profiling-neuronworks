@@ -114,6 +114,14 @@ class DatabaseSeeder extends Seeder
             'color' => 'White',
             'image' => 'image-products/i60HyT36Ue29utZi75CUBES2WMGa0iYugMbwQlGn.png'
         ]);
+        
+        Furniture::create([
+            'name' => 'Hemnes',
+            'price' => 5499000,
+            'type' => 'Bed',
+            'color' => 'White',
+            'image' => 'image-products/image-products/1oCYOI0xKclZmbBznf24G4fvFavs3E3vyScumCA5.png'
+        ]);
 
 
     }

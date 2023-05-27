@@ -2397,6 +2397,23 @@ input[type="radio"] {
 	border-bottom: 1px solid #ebebeb;
 }
 
+
+.password-input {
+    flex: 1;
+}
+
+#showPasswordButton {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#showPasswordIcon {
+    font-size: 20px;
+}
+
 .tab-item ul li a.active {
 	color: #252525;
 }
