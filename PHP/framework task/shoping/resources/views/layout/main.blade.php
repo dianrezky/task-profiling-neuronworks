@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
-    <link rel="shortcut icon" href="{{ asset('img/logos.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/logos web.png') }}">
 </head>
 
 <body>
@@ -31,11 +31,12 @@
         <div class="loader"></div>
     </div>
 
+
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="nav-item">
             <div class="container">
-                <a href="/"><img src="{{ asset('img/logos web.png') }}" alt=""></a>
+                <a href="/"><img src="{{ asset('img/logos web.png') }}" alt="" style="margin-bottom: 10px;"></a>
                 <nav class="nav-menu mobile-menu center">
                     <ul>
                         <li class="nav-link {{ (Request::is('/')) ? 'active' : '' }}"><a href="/">Home</a></li>
@@ -48,31 +49,31 @@
                             </ul>
                         </li>
                         @auth
-                            @cannot('admin')
-                                <li class="nav-link {{ (Request::is('cart')) ? 'active' : '' }}"><a href="/cart">Cart</a></li>
-                            @endcannot
-                            @can('admin')
-                                <li class="nav-link {{ (Request::is('furniture')) ? 'active' : '' }}"><a href="/view">Furniture</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/furniture-create">Add Furniture</a></li>
-                                    </ul>
-                                </li>
-                            @endcan
-                            <li class="nav-link {{ (Request::is('profile')) ? 'active' : '' }}"><a href="/profile">Profile</a>
-                                <ul class="dropdown">
-                                    @cannot('admin')
-                                    <li><a href="/history">View Transaction History</a></li>
-                                    @endcannot
-                                    @can('admin')
-                                    <li><a href="/history-admin">View All Transaction History</a></li>
-                                    @endcan
-                                    <li><a href="/edit_profile/{{ auth()->user()->id }}">Update Profile</a></li>
-                                    <li><a href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
-                                </ul>
-                            </li>
+                        @cannot('admin')
+                        <li class="nav-link {{ (Request::is('cart')) ? 'active' : '' }}"><a href="/cart">Cart</a></li>
+                        @endcannot
+                        @can('admin')
+                        <li class="nav-link {{ (Request::is('furniture')) ? 'active' : '' }}"><a href="/view">Furniture</a>
+                            <ul class="dropdown">
+                                <li><a href="/furniture-create">Add Furniture</a></li>
+                            </ul>
+                        </li>
+                        @endcan
+                        <li class="nav-link {{ (Request::is('profile')) ? 'active' : '' }}"><a href="/profile">Profile</a>
+                            <ul class="dropdown">
+                                @cannot('admin')
+                                <li><a href="/history">View Transaction History</a></li>
+                                @endcannot
+                                @can('admin')
+                                <li><a href="/history-admin">View All Transaction History</a></li>
+                                @endcan
+                                <li><a href="/edit_profile/{{ auth()->user()->id }}">Update Profile</a></li>
+                                <li><a href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                            </ul>
+                        </li>
                         @else
-                            <li class = "nav-link {{ (Request::is('login')) ? 'active' : '' }}"><a href="/login">Login</a></li>
-                            <li class = "nav-link {{ (Request::is('register')) ? 'active' : '' }}"><a href="/register">Register</a></li>
+                        <li class="nav-link {{ (Request::is('login')) ? 'active' : '' }}"><a href="/login">Login</a></li>
+                        <li class="nav-link {{ (Request::is('register')) ? 'active' : '' }}"><a href="/register">Register</a></li>
                         @endauth
 
                     </ul>
@@ -82,20 +83,21 @@
         </div>
     </header>
     <!-- Header End -->
+   
 
     <div class="container">
         @yield('container')
     </div>
 
-   <!-- Footer Section Begin -->
-   <footer class="footer-section">
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
         <div class="copyright-reserved">
             <div class="container">
                 <div class="row">
-                        <div class="copyright-text">
+                    <div class="copyright-text">
                         Copyright <span id="get-year"></span> &copy Dian Rezky Wulandari - PT. Neuronworks
-                Indonesia
-                        </div>
+                        Indonesia
+                    </div>
                 </div>
             </div>
         </div>
@@ -123,6 +125,3 @@
 </body>
 
 </html>
-
-
-    

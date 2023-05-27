@@ -47,6 +47,8 @@ Route::post('/furniture-delete/{id}', [AdminController::class, 'destroy']); //un
 Route::get('/view', [ProductController::class, 'index']);
 Route::get('/furniture/{id}', [ProductController::class, 'show']); //untuk menampilkan detail barang
 Route::get('/furniture-type/{type}', [ProductController::class, 'find']);
+// Route::get('/furniture/{keyword}', [ProductController::class, 'search']);
+Route::get('/furniture', [ProductController::class, 'search'])->name('furniture.search');
 
 //cart
 Route::post('/cart/{id}', [CartController::class, 'store'])->middleware('auth');
