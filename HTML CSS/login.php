@@ -30,7 +30,7 @@ require_once('../template/header.php');
                             </label>
 
                             <div class="password-container">
-                                <input type="password"  placeholder="Masukkan Password" name="password" id="password" title="Please Fill With Valid Email" id="password" required>
+                                <input type="password" placeholder="Masukkan Password" name="password" id="password" title="Please Fill With Valid Email" id="password" required>
                                 <i class="fa-solid fa-eye" id="eye"></i>
                             </div>
                         </div>
@@ -58,6 +58,11 @@ require_once('../template/header.php');
                                 </a>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="form-group social-media">
+                                <p> Anda belum punya akun ? Silahkan Lakukan <a href="registrasi.php">Registrasi</a> </p>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -75,9 +80,9 @@ require_once('../template/footer.php');
     const passwordInput = document.querySelector("#password")
     const eye = document.querySelector("#eye")
 
-    eye.addEventListener("click", function(){
-  this.classList.toggle("fa-eye-slash")
-  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
-  passwordInput.setAttribute("type", type)
-})
+    eye.addEventListener("click", function() {
+        this.classList.toggle("fa-eye-slash")
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
+        passwordInput.setAttribute("type", type)
+    })
 </script>

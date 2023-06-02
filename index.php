@@ -54,6 +54,12 @@ if (isset($_GET['pesan'])) {
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+    <style>
+    .modal-body p {
+        margin-bottom: 0;
+    }
+</style>
+
 </head>
 
 <body>
@@ -78,7 +84,7 @@ if (isset($_GET['pesan'])) {
                             HTML & CSS
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="HTML CSS/login.php">Week 1</a>
+                            <a class="dropdown-item" href="HTML CSS/registrasi.php">Week 1</a>
                             <a class="dropdown-item" href="HTML CSS/dashboard.php">Week 2</a>
                         </div>
 
@@ -140,9 +146,9 @@ if (isset($_GET['pesan'])) {
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>HTML CSS TASK : WEEK 1</h1>
-                            <p>Membuat view untuk login. Tidak boleh menggunakan Bootstrap. Hanya
+                            <p>Membuat view untuk registrasi. Tidak boleh menggunakan Bootstrap. Hanya
                                 diizinkan untuk menggunakan font dan harus membuat CSS sendiri</p>
-                            <p><a class="btn btn-lg btn-primary" href="HTML CSS/login.php" role="button">View More</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="HTML CSS/registrasi.php" role="button">View More</a></p>
                         </div>
                     </div>
                 </div>
@@ -194,8 +200,8 @@ if (isset($_GET['pesan'])) {
                             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                             <img class="card-img-top" src="assets/image/html-week1.png" title="description">
                             <div class="card-body">
-                                <h5 class="card-title">Task 1: Membuat Login</h5>
-                                <p class="card-text">Membuat view untuk login. Tidak boleh menggunakan Bootstrap. Hanya
+                                <h5 class="card-title">Task 1: Membuat Registrasi</h5>
+                                <p class="card-text">Membuat view untuk registrasi. Tidak boleh menggunakan Bootstrap. Hanya
                                     diizinkan untuk menggunakan font dan harus membuat CSS sendiri</p>
                             </div>
                             <div class="card-footer">
@@ -204,7 +210,7 @@ if (isset($_GET['pesan'])) {
                                         <small class="text-muted">28 April 2023</small>
                                     </div>
                                     <div class="col">
-                                        <a class="btn btn-primary button-card-task" target="_blank" href="HTML CSS/login.php" role="button">View More</a>
+                                        <a class="btn btn-primary button-card-task" target="_blank" href="HTML CSS/registrasi.php" role="button">View More</a>
                                     </div>
                                 </div>
                             </div>
@@ -342,15 +348,17 @@ if (isset($_GET['pesan'])) {
                     <div class="card-deck">
                         <div class="card">
                             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                            <img class="card-img-top" src="assets/image/upcoming.jpg" title="description">
+                            <img class="card-img-top" src="assets/image/javascript week 1.png" title="description">
                             <div class="card-body">
-                                <h5 class="card-title">Task 1: Up Coming</h5>
-                                <p class="card-text">Membuat view untuk login. Tidak boleh menggunakan Bootstrap. Hanya
-                                    diizinkan untuk menggunakan font dan harus membuat CSS sendiri</p>
+                                <h5 class="card-title">Task 1: Proses Penampilan Data Sesuai Form</h5>
+                                <p class="card-text">
+                                    Membuat kode javascript untuk Pada inputan pilihan, sumber opsi yang ditampilkan menggunakan Array di javascript (tidak boleh secara langsung menggunakan tag option) 
+                                    dan Tampilkan hasil isian pada form beserta notifikasi sukses.
+                                </p>
                             </div>
                             <div class="card-footer">
-                                <small class="text-muted">28 April 2023</small>
-                                <a class="btn btn-primary button-card-task disabled" href="#" role="button">View
+                                <small class="text-muted">2 Juni 2023</small>
+                                <a class="btn btn-primary button-card-task" href="HTML CSS/registrasi.php" role="button">View
                                     More</a>
                             </div>
                         </div>
