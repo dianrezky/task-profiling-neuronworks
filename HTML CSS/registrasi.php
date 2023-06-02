@@ -166,8 +166,6 @@ require_once('../template/header.php');
 
     // UNTUK PENAMPILAN 
 
-    // UNTUK PENAMPILAN
-
     var form = document.getElementById('recruitment-form');
 
     form.addEventListener('submit', function(event) {
