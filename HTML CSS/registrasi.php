@@ -24,28 +24,28 @@ require_once('../template/header.php');
                                 Fullname
                                 <span class="text-danger"><sup>*</sup></span>
                             </label>
-                            <input type="text" id="fullname" placeholder="Masukkan Nama" name="fullname" required>
+                            <input type="text" id="fullname" placeholder="Masukkan Nama" name="fullname">
                         </div>
                         <div class="form-group">
                             <label>
                                 Email
                                 <span class="text-danger"><sup>*</sup></span>
                             </label>
-                            <input type="email" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Masukkan Email" title="Please Fill With Valid Email" required>
+                            <input type="email" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Masukkan Email" title="Please Fill With Valid Email">
                         </div>
                         <div class="form-group">
                             <label>
                                 Phone Number
                                 <span class="text-danger"><sup>*</sup></span>
                             </label>
-                            <input type="text" id="phoneNumber" pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)" title="Please Fill With Valid Phone Number" placeholder="Masukkan No Handphone" required>
+                            <input type="text" id="phoneNumber" pattern="\+?([ -]?\d+)+|\(\d+\)([ -]\d+)" title="Please Fill With Valid Phone Number" placeholder="Masukkan No Handphone">
                         </div>
                         <div class="form-group">
                             <label>
                                 Vacancy
                                 <span class="text-danger"><sup>*</sup></span>
                             </label>
-                            <select id="vacancy-select"  required>
+                            <select id="vacancy-select" >
                                 <option selected disabled>- Choose The Vacancy -</option>
                             </select>
                         </div>
@@ -54,7 +54,7 @@ require_once('../template/header.php');
                                 Position
                                 <span class="text-danger"><sup>*</sup></span>
                             </label>
-                            <select id="position-select"  required>
+                            <select id="position-select" >
                                 <option selected disabled>- Choose The Position</option>
                             </select>
                         </div>
@@ -118,19 +118,23 @@ require_once('../template/header.php');
 
     var vacancyOptions = [{
             value: 'System Administrator',
-            text: 'System Administrator'
+            text: 'System Administrator',
+            quota: 1
         },
         {
             value: 'System Analyst',
-            text: 'System Analyst'
+            text: 'System Analyst',
+            quota: 2
         },
         {
             value: 'Business Analyst',
-            text: 'Business Analyst'
+            text: 'Business Analyst',
+            quota: 3
         },
         {
             value: 'Junior Programmer',
-            text: 'Junior Programmer'
+            text: 'Junior Programmer',
+            quota: 4
         },
     ];
 
@@ -166,7 +170,15 @@ require_once('../template/header.php');
     // UNTUK PENAMPILAN 
 
     var form = document.getElementById('recruitment-form');
-    var dataForm = [];
+    var formDataArray = [];
+
+    // Mengambil data JSON dari penyimpanan
+    var savedData = localStorage.getItem('formData');
+
+    // Jika data tersimpan ada, memuatnya ke dalam array formDataArray
+    if (savedData) {
+        formDataArray = JSON.parse(savedData);
+    }
 
 
     form.addEventListener('submit', function(event) {
@@ -179,31 +191,74 @@ require_once('../template/header.php');
         var vacancy = document.querySelector('#vacancy-select').value;
         var position = document.querySelector('#position-select').value;
 
-
+        
         //VALIDASI APAKAH SEMUA KOLOM SUDAH DIISI
 
-        // Validasi semua kolom harus diisi
         if (!fullname || !email || !phoneNumber || !vacancy || !position) {
-            alert('Harap isi semua kolom!');
+            alert('Harap lengkapi semua kolom form.');
             return;
         }
 
-        // SIMPAN DATA KE ARRAY
+        // Fungsi validasi email
+        if (isEmailRegistered(email)) {
+            alert('Email sudah terdaftar!');
+            return;
+        }
 
-        var data = {
+        //CHECK KUOTA
+
+
+        var selectedVacancy = getSelectedVacancy(vacancy);
+
+        // Menghitung jumlah pendaftar pada vacancy yang dipilih
+        var totalRegistered = formDataArray.reduce(function(total, formData) {
+            if (formData.vacancy === selectedVacancy.value) {
+                return total + 1;
+            }
+            return total;
+        }, 0);
+
+
+        if (selectedVacancy) {
+            var remainingQuota = getRemainingQuota(vacancy);
+            if (remainingQuota === 0) {
+                alert(`Mohon maaf, rekrutasi untuk ${selectedVacancy.text} sudah penuh dan tidak dapat dipilih.`);
+                return;
+            } else if (remainingQuota <= selectedVacancy.quota-1) {
+                alert(`Kuota tersisa untuk ${selectedVacancy.text} hanya ${remainingQuota} pendaftar.`);
+            } else {
+                alert(`Anda dapat memilih lowongan ${selectedVacancy.text}.`);
+            }
+            selectedVacancy.quota--;
+        }
+
+
+
+        // SIMPAN DATA KE ARRAY KEMUDIAN JSON
+
+        var formData = {
             fullname: fullname,
             email: email,
             phoneNumber: phoneNumber,
             vacancy: vacancy,
-            position: positionhttps://www.youtube.com/watch?v=eJ1IW9TzRLw
+            position: position
         };
 
-        dataForm.push(data);
+        formDataArray.push(formData);
 
-        console.log(dataform);
+        // Mengubah array menjadi representasi JSON
+        var jsonData = JSON.stringify(formDataArray);
+
+        // Menyimpan data JSON ke penyimpanan
+        localStorage.setItem('formData', jsonData);
 
 
+        // Menampilkan data JSON dalam console (opsional)
+        console.log(jsonData);
 
+        form.reset();
+
+    
         // MENAMPILKAN DATA KEDALAM MODAL VIEW
 
         var resultContainer = document.getElementById('result');
@@ -218,14 +273,49 @@ require_once('../template/header.php');
         <p>${vacancy}</p>
         <p><b>Position: </b></p>
         <p>${position}</p>
-    `;
+        <p><b>Total Pendaftar untuk ${vacancy}: </b></p>
+        <p>${totalRegistered+1}</p>`;
 
         $('#resultModal').modal('show');
     });
 
-    // UNTUK SIMPAN DATA LOKAL
+    // FUNGSI VALIDASI EMAIL 
 
+    function isEmailRegistered(email) {
+        // Mengambil data JSON dari penyimpanan
+        var savedData = localStorage.getItem('formData');
 
+        // Jika data tersimpan ada, memuatnya ke dalam array formDataArray
+        if (savedData) {
+            formDataArray = JSON.parse(savedData);
+
+            // Memeriksa apakah email sudah terdaftar dalam formDataArray
+            for (var i = 0; i < formDataArray.length; i++) {
+                if (formDataArray[i].email === email) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    // Fungsi untuk mendapatkan objek lowongan yang dipilih
+    function getSelectedVacancy(value) {
+        return vacancyOptions.find(function(option) {
+            return option.value === value;
+        });
+    }
+
+    function getRemainingQuota(value) {
+        var selectedVacancy = getSelectedVacancy(value);
+        if (selectedVacancy) {
+            return selectedVacancy.quota;
+        }
+        return 0;
+    }
+
+   
 
 
 </script>
