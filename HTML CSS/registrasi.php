@@ -113,7 +113,6 @@ require_once('../template/header.php');
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 <script>
     var vacancySelect = document.querySelector('#vacancy-select');
 
@@ -167,8 +166,11 @@ require_once('../template/header.php');
     // UNTUK PENAMPILAN 
 
     var form = document.getElementById('recruitment-form');
+    var dataForm = [];
+
 
     form.addEventListener('submit', function(event) {
+        
         event.preventDefault();
 
         var fullname = document.querySelector('input[name="fullname"]').value;
@@ -176,6 +178,33 @@ require_once('../template/header.php');
         var phoneNumber = document.querySelector('#phoneNumber').value;
         var vacancy = document.querySelector('#vacancy-select').value;
         var position = document.querySelector('#position-select').value;
+
+
+        //VALIDASI APAKAH SEMUA KOLOM SUDAH DIISI
+
+        // Validasi semua kolom harus diisi
+        if (!fullname || !email || !phoneNumber || !vacancy || !position) {
+            alert('Harap isi semua kolom!');
+            return;
+        }
+
+        // SIMPAN DATA KE ARRAY
+
+        var data = {
+            fullname: fullname,
+            email: email,
+            phoneNumber: phoneNumber,
+            vacancy: vacancy,
+            position: positionhttps://www.youtube.com/watch?v=eJ1IW9TzRLw
+        };
+
+        dataForm.push(data);
+
+        console.log(dataform);
+
+
+
+        // MENAMPILKAN DATA KEDALAM MODAL VIEW
 
         var resultContainer = document.getElementById('result');
         resultContainer.innerHTML = `
@@ -193,6 +222,12 @@ require_once('../template/header.php');
 
         $('#resultModal').modal('show');
     });
+
+    // UNTUK SIMPAN DATA LOKAL
+
+
+
+
 </script>
 
 <!-- AREA CONTENT END -->
